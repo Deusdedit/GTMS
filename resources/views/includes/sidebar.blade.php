@@ -47,7 +47,7 @@
          
 
           @elseif ( Auth::user()->role_id == '2')
-          <!-- TO -->
+          <!-- Manager -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
@@ -104,55 +104,15 @@
             </ul>
           </li>
           
-          @elseif ( Auth::user()->role_id == '3')
-          <!-- PMU -->
-          
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Asset Management
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>new Assets</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Receiving</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Disposal</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          
-          @elseif ( Auth::user()->role_id == '4')
-          <!-- Manager -->
-
-            <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Management Reports
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-
-          </li>
-          
           @endif
+          <li class="nav-item has-treeview">
+            <a href="{{route('activity.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Activities
+                </p>
+            </a>
+          </li>
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
