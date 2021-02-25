@@ -29,7 +29,7 @@
                 Home
                 
               </p>
-            </a>
+            </a> 
           </li>
          
          
@@ -37,7 +37,7 @@
           <!-- Admin -->
 
           <li class="nav-item has-treeview">
-            <a href=" {{ route('user.index') }}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users Management
@@ -59,43 +59,43 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('vehicle.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Vehicle</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('generator.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Generator</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('driver.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Drivers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('fuel.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Fuels</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('service.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Services</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('maintenance.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Maintenance</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('accident.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Accidents</p>
                 </a>
@@ -118,19 +118,19 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('asset.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Assets</p>
+                  <p>new Assets</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('receiving.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Receiving</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('disposal.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
                   <p>Disposal</p>
                 </a>
@@ -150,50 +150,12 @@
                 </p>
             </a>
 
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('assetReport.index') }}" class="nav-link">
-                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Assets</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('fuelReport.index') }}" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Fuel</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('serviceReport.index') }}" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Service</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('maintenanceReport.index') }}" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Maintenance</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('disposalReport.index') }}" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Disposal</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('accidentReport.index') }}" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Accident</p>
-                </a>
-              </li>
-            </ul>
           </li>
           
           @endif
 
           <li class="nav-item has-treeview">
-            <a href=" {{ route('change') }}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-key"></i>
               <p>
                 change Password
