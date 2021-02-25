@@ -37,6 +37,7 @@
                   </thead>
                   <tbody>
                   @foreach($activities as $activity)
+                  @if($activity->user_id == $logged_id )
                   <tr>
                     <td>{{$activity->name}}</td>
                     <td>{{$activity->details}}</td>
@@ -117,7 +118,7 @@
                 </form>
                 <!-- /.modal-dialog -->
             </div>
-
+                    @endif
                   @endforeach
                   </tbody>
                 </table>

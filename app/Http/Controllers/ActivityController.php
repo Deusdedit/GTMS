@@ -17,8 +17,9 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
+        $logged_id = Auth::user()->id;
         
-        return view('Activity.index',compact('activities'));
+        return view('Activity.index',compact('activities', 'logged_id'));
     }
 
     /**
