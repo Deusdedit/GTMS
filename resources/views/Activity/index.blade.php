@@ -45,67 +45,36 @@
                     <td>{{$activity->end_date}}</td>
                     <td>{{$activity->status}}</td>
                     <td>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-finish{{$activity->id}}">Finish</button>
+
                         <a href="{{ route('activity.edit', $activity->id) }}">
-                            <button type="button" class="btn btn-info btn-sm" >Finish</button>
+                            <button type="button" class="btn btn-success btn-sm" >Edit</button>
                         </a>
                         
-                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Edit</button>
+                    
                         
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
                     </td>
                   </tr>
 
                   <!-- Finish activity -->
-            <div class="modal fade" id="modal-activity">
+            <div class="modal fade" id="modal-finish{{$activity->id}}">
                 <form role="form" method="post" action="{{ route('finishActivity') }}" id="activityForm">
                     @csrf
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add new activity</h4>
+                            <div class="modal-header bg-info">
+                                <h4 class="modal-title">Finish activity</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="ledgerNumberId">Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="quantityId">Client</label>
-                                            <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="costId">Details</label>
-                                            <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Colaborators</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="supplierId">Expected Output</label>
-                                            <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="totalcostId">Resources</label>
-                                            <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
-                                        </div>
-
-                                    </div>   
-                                </div>    
+                                <div class="form-group">
+                                    <label for="ledgerNumberId">Recommendations</label>
+                                    <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
+                                </div>   
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
