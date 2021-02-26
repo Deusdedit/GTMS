@@ -2,6 +2,7 @@
 
 @section('content')
 
-<p>welcome page</p>
+composer require spatie/laravel-activitylog
+composer require barryvdh/laravel-dompdf
 
 @stop
