@@ -45,6 +45,23 @@
             </a>
           </li>
          
+          <li class="nav-item has-treeview">
+            <a href="{{ route('user.index') }}" class="nav-link">
+              <i class="nav-icon fa fa-university"></i>
+              <p>
+                Departments
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="{{ route('user.index') }}" class="nav-link">
+              <i  class="nav-icon fas fa-sitemap"></i>
+              <p>
+                Sections
+              </p>
+            </a>
+          </li>
 
           @elseif ( Auth::user()->role_id == '2')
           <!-- Manager -->
