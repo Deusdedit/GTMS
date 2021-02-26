@@ -1,222 +1,107 @@
 @extends('layouts.master')
 
 @section('content')
+<p>
 
-<div class="card">
-              <div class="card-header">
-                <h3 class="card-title">All Activities </h3>
-                <button type="button" class="btn btn-primary btn-sm" style="float:right" data-toggle="modal" data-target="#modal-activity">Add new Activity</button>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                  @if ($message = Session::get('success'))
-                    <div class="alert alert-success" id="success_element">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger" >
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Details</th>
-                    <th>Start date</th>
-                    <th>End Date</th>
-                    <th>Status</th>
-                    <th>Action </th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  @foreach($activities as $activity)
-                  @if($activity->user_id == $logged_id )
-                  <tr>
-                    <td>{{$activity->name}}</td>
-                    <td>{{$activity->details}}</td>
-                    <td>{{$activity->start_date}}</td>
-                    <td>{{$activity->end_date}}</td>
-                    <td>{{$activity->status}}</td>
-                    <td>
-                        <a href="{{ route('activity.edit', $activity->id) }}">
-                            <button type="button" class="btn btn-info btn-sm" >Finish</button>
-                        </a>
-                        
-                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Edit</button>
-                        
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
-                    </td>
-                  </tr>
+</p>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Edit selected activity</h3>
+            <a href="{{ route('activity.index') }}">
+                <button type="button" class="btn btn-primary btn-sm" style="float:right">Back to all activity</button>
+            </a>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success" id="success_element">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger" >
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                  <!-- Finish activity -->
-            <div class="modal fade" id="modal-activity">
-                <form role="form" method="post" action="{{ route('finishActivity') }}" id="activityForm">
+        <form role="form" method="post" action="{{ route('activity.update', $activity->id) }}" id="receivingForm">
                     @csrf
+                    @method('PATCH')
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         
                             <div class="modal-header">
-                                <h4 class="modal-title">Add new activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <h4 class="modal-title">Edit Activity details</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="ledgerNumberId">Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name">
+                                            <label for="AssetName">Activity name</label>
+                                            <input type="text" class="form-control" id="assetNameId" value="{{$activity->name}}" name="name">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="quantityId">Client</label>
-                                            <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
+                                            <input type="text" class="form-control" id="quantityId" value="{{$activity->client}}" name="client">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="supplierId">Expected activity</label>
+                                            <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="costId">Details</label>
-                                            <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
-                                        </div>
 
                                     </div>
 
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="itemNameId">Colaborators</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
+                                            <label for="itemNameId">Details</label>
+                                            <input type="text" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="supplierId">Expected Output</label>
-                                            <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
+                                            <label for="supplierId">Resources</label>
+                                            <input type="text" class="form-control" id="serialId" value="{{$activity->resources}}" name="resources">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="totalcostId">Resources</label>
-                                            <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
+                                            <label for="supplierId">Colaborators</label>
+                                            <input type="text" class="form-control" id="locationId" value="{{$activity->colaborators}}" name="colaborators">
                                         </div>
 
+                                        
                                     </div>   
                                 </div>    
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add activity</button>
+                                <button type="submit" class="btn btn-success">Edit details</button>
                             </div>
                             
                         </div>
                         <!-- /.modal-content -->
                     </div>
                 </form>
-                <!-- /.modal-dialog -->
-            </div>
-                    @endif
-                  @endforeach
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            
-            <!-- add new activity -->
-            <div class="modal fade" id="modal-activity">
-                <form role="form" method="post" action="{{ route('activity.store') }}" id="activityForm">
-                    @csrf
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add new activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="ledgerNumberId">Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="quantityId">Client</label>
-                                            <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="costId">Details</label>
-                                            <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Colaborators</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="supplierId">Expected Output</label>
-                                            <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="totalcostId">Resources</label>
-                                            <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
-                                        </div>
-
-                                    </div>   
-                                </div>    
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add activity</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
-
+    </div>
 @endsection
-
 @section('pagescripts')
 
-<!-- DataTables -->
-    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-   
-    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
     <script type="text/javascript">
+
+    
+    
         $(function () {
-            $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-            });
-            $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-            });
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
             setTimeout(function(){$("#success_element").hide();}, 5000);
         });     
 
@@ -226,29 +111,64 @@
                 // alert( "Form successful submitted!" );
                 // }
             });
-            $('#activityForm').validate({
+            $('#receivingForm').validate({
             rules: {
                     name: {
                         required: true,
                     },
-                    details: {
+                    purchased_date: {
                         required: true,
                     },
-                    resources: {
+                    serial_number: {
                         required: true,
                     },
-                    
+                    product_number: {
+                        required: true,
+                    },
+
+                    location: {
+                        required: true,
+                    },
+
+                    activity: {
+                        required: true,
+                    },
+                
+                    // password: {
+                    //     required: true,
+                    //     minlength: 5
+                    // },
+                    // terms: {
+                    //     required: true
+                    // },
             },
             messages: {
                 name: {
-                    required: "Please enter activity name",
+                    required: "Please enter a Asset Name",
                 },
-                details: {
-                        required: "Please enter details",
+                purchased_date: {
+                        required: "Please enter purchased date",
                 },
-                resources: {
-                    required: "Please enter resources",
+                serial_number: {
+                    required: "Please enter serial number",
                 },
+                product_number: {
+                    required: "Please enter product number",
+                },
+
+                location: {
+                    required: "Please enter location",
+                },
+
+                activity: {
+                    required: "Please enter activity",
+                },
+                
+                // password: {
+                //     required: "Please provide a password",
+                //     minlength: "Your password must be at least 5 characters long"
+                // },
+                // terms: "Please accept our terms"
             },
                 errorElement: 'span',
                 errorPlacement: function (error, element) {

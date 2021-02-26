@@ -42,10 +42,23 @@
                   @foreach($activities as $activity)
                   @if($activity->user_id == $logged_id )
                   <tr>
-                    <td>{{$activity->name}}</td>
+                    <td>
+                        <a href="{{ route('activity.show', $activity->id)}}" >
+                            {{$activity->name}}
+                        </a>
+                    </td>
                     <td>{{$activity->details}}</td>
                     <td>{{$activity->start_date}}</td>
-                    <td>{{$activity->end_date}}</td>
+                    <td>
+                        @if($activity->end_date != Null )
+                            {{$activity->end_date}}
+                        @else
+                        <center>
+                            <i class="fas fa-spinner" style="color:green;"></i>
+                        </center>
+                        
+                        @endif
+                    </td>
                     <td>{{$activity->status}}</td>
                     <td>
                     @if($activity->status == "On going" )
@@ -56,9 +69,40 @@
                         </a>
                         
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
+                    @else
+                    <center>
+                        <i class="fas fa-check" style="color:green;"></i>
+                    </center>
+                    
                     @endif
                     </td>
                   </tr>
+
+                  <!-- deleting activity -->
+                  <div class="modal fade" id="modal-sm{{$activity->id}}">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                    <h4 class="modal-title">Deleting {{$activity->name}} Activity</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete <b> {{$activity->name}} </b> activity permanently? </p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                    <form action="{{ route('activity.destroy', $activity->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                   <!-- Finish activity -->
             <div class="modal fade" id="modal-finish{{$activity->id}}">

@@ -81,7 +81,9 @@ class ActivityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $activity = Activity::find($id);
+
+        return view('Activity.edit',compact('activity'));
     }
 
     /**
@@ -93,7 +95,15 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $activity = Activity::find($id);
+        $activity->name = $request['name'];
+        $activity->client = $request['client'];
+        $activity->details = $request['details'];
+        $activity->colaborators = $request['colaborators'];
+        $activity->output = $request['output'];
+        $activity->resources = $request['resources'];
+        $activity->save();
+        return redirect()->route('activity.index')->with('success','Activity updated successfully.');
     }
 
     /**
@@ -104,7 +114,9 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $activity = Activity::find($id);
+        $activity->delete();
+        return redirect()->route('activity.index')->with('success', 'Activity Deleted successfully');
     }
 
     public function finish(Request $request, $id)

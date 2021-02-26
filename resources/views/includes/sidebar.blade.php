@@ -112,7 +112,7 @@
                   Activities
                 </p>
             </a>
-          </li>
+          </li> 
 
           <li class="nav-item has-treeview">
             <a href=" {{ route('change') }}" class="nav-link">
