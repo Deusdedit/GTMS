@@ -31,7 +31,7 @@
                   $i=0;
                 @endphp
             @foreach($activities as $activity)
-            @if($activity->user_id == $logged_id )
+            @if($activity->user_id == $logged_id ) 
             <tr>
                 <td align="center"> 
                      {{++$i}}
@@ -42,7 +42,16 @@
                 <td>{{$activity->colaborators}}</td>
                 <td>{{$activity->output}}</td>
                 <td>{{$activity->start_date}}</td>
-                <td>{{$activity->end_date}}</td>
+                <td>
+                        @if($activity->end_date != Null )
+                            {{$activity->end_date}}
+                        @else
+                        <center> 
+                            <i class="fas fa-spinner" style="color:green;"> -- </i>
+                        </center>
+                        
+                        @endif
+                    </td>
                 <td>{{$activity->status}}</td>
                 <td>{{$activity->recomendation}}</td>
                                   
