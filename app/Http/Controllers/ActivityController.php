@@ -70,7 +70,8 @@ class ActivityController extends Controller
      */
     public function show($id)
     {
-        //
+        $activity = Activity::find($id);
+        return view('activity.show',compact('activity'));
     }
 
     /**

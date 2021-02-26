@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;  
 use App\Http\Controllers\ChangPasswordController; 
 use App\Http\Controllers\PrintReportController; 
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +28,8 @@ Route::get('change-password', [App\Http\Controllers\ChangPasswordController::cla
 Route::post('change-password', [App\Http\Controllers\ChangPasswordController::class, 'changePassword']);
 Route::get('finishActivity',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
 Route::patch('finishActivity/{id}',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
+Route::patch('activate/{id}',[App\Http\Controllers\UserController::class, 'activate'])->name('activate');
+Route::patch('reset/{id}',[App\Http\Controllers\UserController::class, 'reset'])->name('reset');
 Route::resource('activity', ActivityController::class);
 Route::get('printReportActivity',[App\Http\Controllers\PrintReportController::class, 'activity'])->name('printReportActivity');
+Route::resource('user', UserController::class);
