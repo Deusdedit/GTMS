@@ -5,7 +5,7 @@
     </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color:#E1BA47;">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
     @include('includes.header')
   </nav>
   <aside class="main-sidebar sidebar-dark-primary elevation-4" >
