@@ -5,7 +5,10 @@
 <div class="card">
               <div class="card-header">
                 <h3 class="card-title">All Activities </h3>
-                <button type="button" class="btn btn-primary btn-sm" style="float:right" data-toggle="modal" data-target="#modal-activity">Add new Activity</button>
+                <a href="{{route('printReportActivity')}}" target="_blank">
+                <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
+              </a>
+                <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-activity">Add new Activity</button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -28,7 +31,7 @@
                   <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Details</th>
+                    <th>Details</th> 
                     <th>Start date</th>
                     <th>End Date</th>
                     <th>Status</th>

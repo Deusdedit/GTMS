@@ -1,9 +1,9 @@
 <!-- Brand Logo -->
-
+<div class="bg-info" style="">
 <a href="#" class="brand-link">
-      <img src="{{asset('assets/dist/img/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset('assets/dist/img/logo.jpg')}}" alt="GST Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light"><b>AMS</b></span>
+      <span class="brand-text font-weight-light"><b>GTMS</b></span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -115,7 +115,7 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href=" {{ route('change') }}" class="nav-link">
               <i class="nav-icon fas fa-key"></i>
               <p>
                 change Password
@@ -143,6 +143,7 @@
         </ul>
       </nav>
       
+    </div>
     </div>
     <!-- /.sidebar -->
   
