@@ -62,13 +62,14 @@
 
                   <!-- Finish activity -->
             <div class="modal fade" id="modal-finish{{$activity->id}}">
-                <form role="form" method="post" action="{{ route('finishActivity') }}" id="activityForm">
+                <form role="form" method="post" action="{{ route('finishActivity', $activity->id) }}" id="activityForm">
                     @csrf
+                    @method('PATCH')
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         
                             <div class="modal-header bg-info">
-                                <h4 class="modal-title">Finish activity</h4>
+                                <h4 class="modal-title">Finish {{$activity->name}} activity</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -81,7 +82,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add activity</button>
+                                <button type="submit" class="btn btn-primary">Finish activity</button>
                             </div>
                             
                         </div>

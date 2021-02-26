@@ -46,6 +46,7 @@ class ActivityController extends Controller
             'resources' => 'required',            
         ]);
         $now_date = Carbon::now();
+        $now_date = Carbon::now('Africa/Dar_es_Salaam');
 
         $activity = new Activity();
         $activity->name = $request['name'];
@@ -108,7 +109,12 @@ class ActivityController extends Controller
 
     public function finish(Request $request, $id)
     {
-        //
+        $activity = Activity::find($id);
+        $now_date = Carbon::now('Africa/Dar_es_Salaam');
+        $activity->recommendations = $request['recommendations'];
+        $activity->end_date = $now_date;
+        $activity->save();
+        return redirect()->route('activity.index')->with('success','Congrats activity finished successfully.');
     }
 }
 

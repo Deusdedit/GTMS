@@ -21,8 +21,8 @@ class CreateActivitiesTable extends Migration
             $table->string('resources');
             $table->string('colaborators')->nullable();
             $table->string('output')->nullable();
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->dateTime('start_date');
+            $table->dateTime('end_date')->nullable();
             $table->string('status');
             $table->string('recommendations')->nullable();
             $table->unsignedBigInteger('user_id');
