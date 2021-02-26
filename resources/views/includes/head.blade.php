@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TMS</title>
+<title>TMS</title> 
 <link rel="icon" href="assets/dist/img/logo.jpg">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
