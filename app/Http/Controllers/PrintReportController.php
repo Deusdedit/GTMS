@@ -17,6 +17,7 @@ class PrintReportController extends Controller
         $logged_id = Auth::user()->id;
         
         $pdf = PDF::loadView('Activity.print_activity', compact('activities','logged_id'));
+        $pdf->setPaper('A4', 'landscape');
         
         return ($pdf->stream('Activity Report.pdf'));
     }
