@@ -113,6 +113,7 @@ class ActivityController extends Controller
         $now_date = Carbon::now('Africa/Dar_es_Salaam');
         $activity->recommendations = $request['recommendations'];
         $activity->end_date = $now_date;
+        $activity->status = "Finished";
         $activity->save();
         return redirect()->route('activity.index')->with('success','Congrats activity finished successfully.');
     }
