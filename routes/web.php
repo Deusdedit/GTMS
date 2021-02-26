@@ -23,12 +23,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-<<<<<<< Updated upstream
 Route::get('change-password', [App\Http\Controllers\ChangPasswordController::class, 'index'])->name('change');
 Route::post('change-password', [App\Http\Controllers\ChangPasswordController::class, 'changePassword']);
 Route::get('finishActivity',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
-=======
 Route::patch('finishActivity/{id}',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
->>>>>>> Stashed changes
 Route::resource('activity', ActivityController::class);
 Route::get('printReportActivity',[App\Http\Controllers\PrintReportController::class, 'activity'])->name('printReportActivity');
