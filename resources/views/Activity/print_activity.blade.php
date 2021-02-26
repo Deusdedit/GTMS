@@ -8,6 +8,7 @@
         <img  style="width:100%;" src="{{ public_path('assets/img/barner.png')}}"></img>
          <br>
         <!--  <br> -->
+        <center><h1><b>GST TASK MANAGEMENT SYSTEM</b></h1></center>
          <center><h2><b>ACTIVITY REPORT</b></h2></center>
         <table width="100%" border='1' style="width:100%; border-collapse:collapse;font-size:11;" >
             <thead>
@@ -30,7 +31,7 @@
                   $i=0;
                 @endphp
             @foreach($activities as $activity)
-            @if($activity->user_id == $logged_id )
+            @if($activity->user_id == $logged_id ) 
             <tr>
                 <td align="center"> 
                      {{++$i}}
@@ -41,9 +42,27 @@
                 <td>{{$activity->colaborators}}</td>
                 <td>{{$activity->output}}</td>
                 <td>{{$activity->start_date}}</td>
-                <td>{{$activity->end_date}}</td>
+                <td>
+                        @if($activity->end_date != Null )
+                            {{$activity->end_date}}
+                        @else
+                        <center> 
+                            <i class="fas fa-spinner" style="color:green;"> -- </i>
+                        </center>
+                        
+                        @endif
+                    </td>
                 <td>{{$activity->status}}</td>
-                <td>{{$activity->recomendation}}</td>
+                <td>
+                        @if($activity->recommendation != Null )
+                            {{$activity->recommendation}}
+                        @else
+                        <center> 
+                            <i class="fas fa-spinner" style="color:green;"> -- </i>
+                        </center>
+                        
+                        @endif
+                    </td>
                                   
             </tr>
             @endif
