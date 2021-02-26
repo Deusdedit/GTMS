@@ -9,15 +9,19 @@
          <br>
         <!--  <br> -->
          <center><h2><b>ACTIVITY REPORT</b></h2></center>
-        <table width="100%" border='1' style="width:100%; border-collapse:collapse" >
+        <table width="100%" border='1' style="width:100%; border-collapse:collapse;font-size:11;" >
             <thead>
                 <tr>
                     <th>S/N</th>
                     <th>Activity Name</th>
                     <th>Details</th>
+                    <th>Resources</th>
+                    <th>Colaborators</th>
+                    <th>Output</th>
                     <th>Start date </th>
                     <th>End Date</th>
                     <th>Status</th>
+                    <th>Recommendation</th>
                     
                 </tr>
             </thead>
@@ -33,9 +37,14 @@
                 </td>
                 <td>{{$activity->name}}</td>
                 <td>{{$activity->details}}</td>
+                <td>{{$activity->resources}}</td>
+                <td>{{$activity->colaborators}}</td>
+                <td>{{$activity->output}}</td>
                 <td>{{$activity->start_date}}</td>
                 <td>{{$activity->end_date}}</td>
-                <td>{{$activity->status}}</td>                  
+                <td>{{$activity->status}}</td>
+                <td>{{$activity->recomendation}}</td>
+                                  
             </tr>
             @endif
             @endforeach
