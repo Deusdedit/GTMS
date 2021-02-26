@@ -48,15 +48,15 @@
                     <td>{{$activity->end_date}}</td>
                     <td>{{$activity->status}}</td>
                     <td>
+                    @if($activity->status == "On going" )
                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-finish{{$activity->id}}">Finish</button>
 
                         <a href="{{ route('activity.edit', $activity->id) }}">
                             <button type="button" class="btn btn-success btn-sm" >Edit</button>
                         </a>
                         
-                    
-                        
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
+                    @endif
                     </td>
                   </tr>
 
