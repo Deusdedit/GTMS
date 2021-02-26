@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Asset;
-
+use App\Models\Activity;
+use Auth;
 
 use PDF;
 
