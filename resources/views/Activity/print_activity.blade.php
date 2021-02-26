@@ -8,6 +8,7 @@
         <img  style="width:100%;" src="{{ public_path('assets/img/barner.png')}}"></img>
          <br>
         <!--  <br> -->
+        <center><h1><b>GST TASK MANAGEMENT SYSTEM</b></h1></center>
          <center><h2><b>ACTIVITY REPORT</b></h2></center>
         <table width="100%" border='1' style="width:100%; border-collapse:collapse;font-size:11;" >
             <thead>
