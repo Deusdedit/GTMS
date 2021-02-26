@@ -53,7 +53,16 @@
                         @endif
                     </td>
                 <td>{{$activity->status}}</td>
-                <td>{{$activity->recomendation}}</td>
+                <td>
+                        @if($activity->recommendation != Null )
+                            {{$activity->recommendation}}
+                        @else
+                        <center> 
+                            <i class="fas fa-spinner" style="color:green;"> -- </i>
+                        </center>
+                        
+                        @endif
+                    </td>
                                   
             </tr>
             @endif
