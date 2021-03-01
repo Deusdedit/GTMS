@@ -6,7 +6,7 @@
 <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3 col-sm-6 col-12">
+                <div class="col-md-4 col-sm-6 col-12">
                 <a href="{{route('finished.index')}}">
                         <div class="info-box">
                             <span class="info-box-icon bg-success"><i class="fas fa-check"></i></span>
@@ -21,7 +21,7 @@
                         </a>
                 </div>
                 <!-- /.col -->
-                <div class="col-md-3 col-sm-6 col-12">
+                <div class="col-md-4 col-sm-6 col-12">
                 <a href="{{route('ongoing.index')}}">
                     <div class="info-box">
                     <span class="info-box-icon bg-warning"><i class="fas fa-spinner"></i></span>
@@ -38,7 +38,7 @@
                 <!-- /.col -->
 
 
-                <div class="col-md-3 col-sm-6 col-12">
+                <div class="col-md-4 col-sm-6 col-12">
                     <div class="info-box">
                     <span class="info-box-icon bg-info"><i class="fas fa-tasks"></i></span>
 
