@@ -68,8 +68,8 @@
           @elseif ( Auth::user()->role_id == '2')
           <!-- Manager -->
           <li class="nav-item has-treeview">
-            <a href="{{ route('department.index') }}" class="nav-link">
-              <i class="nav-icon fa fa-university"></i>
+            <a href="{{ route('individual') }}" class="nav-link">
+              <i class="nav-icon fa fa-copy"></i>
               <p>
                 Individual Reports
               </p>
@@ -77,7 +77,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="{{ route('department.index') }}" class="nav-link">
-              <i class="nav-icon fa fa-university"></i>
+              <i class="nav-icon fa fa-copy"></i>
               <p>
                 Section Reports
               </p>
@@ -85,7 +85,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="{{ route('department.index') }}" class="nav-link">
-              <i class="nav-icon fa fa-university"></i>
+              <i class="nav-icon fa fa-copy"></i>
               <p>
                 Departments Reports
               </p>

@@ -7,6 +7,7 @@ use App\Http\Controllers\PrintReportController;
 use App\Http\Controllers\DepartmentController; 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\ReportsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +39,6 @@ Route::get('printReportActivity',[App\Http\Controllers\PrintReportController::cl
 Route::resource('user', UserController::class);
 Route::resource('department', DepartmentController::class);
 Route::resource('section', SectionController::class);
+
+Route::get('individual',[App\Http\Controllers\ReportsController::class, 'index'])->name('individual');
+Route::post('getIndividual',[App\Http\Controllers\ReportsController::class, 'individual'])->name('getIndividual');

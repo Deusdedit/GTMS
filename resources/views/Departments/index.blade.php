@@ -16,17 +16,17 @@
                     <div class="alert alert-success" id="success_element">
                         <p>{{ $message }}</p>
                     </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger" >
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger" >
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>

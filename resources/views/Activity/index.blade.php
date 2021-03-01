@@ -107,71 +107,71 @@
                     </div>
 
                   <!-- Finish activity -->
-            <div class="modal fade" id="modal-finish{{$activity->id}}">
-                <form role="form" method="post" action="{{ route('finishActivity', $activity->id) }}" id="activityForm">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header bg-info">
-                                <h4 class="modal-title">Finish {{$activity->name}} activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="ledgerNumberId">Recommendations</label>
-                                    <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
-                                </div>   
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Finish activity</button>
-                            </div>
+                <div class="modal fade" id="modal-finish{{$activity->id}}">
+                    <form role="form" method="post" action="{{ route('finishActivity', $activity->id) }}" id="activityForm">
+                        @csrf
+                        @method('PATCH')
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
                             
+                                <div class="modal-header bg-info">
+                                    <h4 class="modal-title">Finish {{$activity->name}} activity</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="ledgerNumberId">Recommendations</label>
+                                        <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
+                                    </div>   
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Finish activity</button>
+                                </div>
+                                
+                            </div>
+                            <!-- /.modal-content -->
                         </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- Cancel activity -->
-            <div class="modal fade" id="modal-cancel{{$activity->id}}">
-                <form role="form" method="post" action="{{ route('cancelActivity', $activity->id) }}" id="activityForm">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header bg-warning">
-                                <h4 class="modal-title">Cancel {{$activity->name}} activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="ledgerNumberId">Recommendations</label>
-                                    <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
-                                </div>   
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Cancel activity</button>
-                            </div>
+                    </form>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- Cancel activity -->
+                <div class="modal fade" id="modal-cancel{{$activity->id}}">
+                    <form role="form" method="post" action="{{ route('cancelActivity', $activity->id) }}" id="activityForm">
+                        @csrf
+                        @method('PATCH')
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
                             
+                                <div class="modal-header bg-warning">
+                                    <h4 class="modal-title">Cancel {{$activity->name}} activity</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="ledgerNumberId">Recommendations</label>
+                                        <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
+                                    </div>   
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Cancel activity</button>
+                                </div>
+                                
+                            </div>
+                            <!-- /.modal-content -->
                         </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
+                    </form>
+                    <!-- /.modal-dialog -->
+                </div>
                     @endif
                   @endforeach
                   </tbody>
-                </table>
+        </table>
               </div>
               <!-- /.card-body -->
             </div>
