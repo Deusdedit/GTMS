@@ -30,6 +30,7 @@ Route::get('change-password', [App\Http\Controllers\ChangPasswordController::cla
 Route::post('change-password', [App\Http\Controllers\ChangPasswordController::class, 'changePassword']);
 Route::get('finishActivity',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
 Route::patch('finishActivity/{id}',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
+Route::patch('cancelActivity/{id}',[App\Http\Controllers\ActivityController::class, 'cancel'])->name('cancelActivity');
 Route::patch('activate/{id}',[App\Http\Controllers\UserController::class, 'activate'])->name('activate');
 Route::patch('reset/{id}',[App\Http\Controllers\UserController::class, 'reset'])->name('reset');
 Route::resource('activity', ActivityController::class);

@@ -62,7 +62,9 @@
                     <td>{{$activity->status}}</td>
                     <td>
                     @if($activity->status == "On going" )
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-cancel{{$activity->id}}">Cancel</button>
                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-finish{{$activity->id}}">Finish</button>
+                    
 
                         <a href="{{ route('activity.edit', $activity->id) }}">
                             <button type="button" class="btn btn-success btn-sm" >Edit</button>
@@ -127,6 +129,37 @@
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Finish activity</button>
+                            </div>
+                            
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                </form>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- Cancel activity -->
+            <div class="modal fade" id="modal-cancel{{$activity->id}}">
+                <form role="form" method="post" action="{{ route('cancelActivity', $activity->id) }}" id="activityForm">
+                    @csrf
+                    @method('PATCH')
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        
+                            <div class="modal-header bg-warning">
+                                <h4 class="modal-title">Cancel {{$activity->name}} activity</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="ledgerNumberId">Recommendations</label>
+                                    <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
+                                </div>   
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Cancel activity</button>
                             </div>
                             
                         </div>
@@ -224,6 +257,7 @@
             $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "order": [[ 2, "desc" ]],
             });
             $('#example2').DataTable({
             "paging": true,

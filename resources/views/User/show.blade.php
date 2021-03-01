@@ -59,6 +59,18 @@
                             </tr>
                         @endif
                     @endforeach
+                    @foreach($sections as $section)
+                        @if(($section->id) == ($user->section_id) )
+                          @foreach($departments as $department)
+                            @if(($department->id) == ($section->department_id) )
+                              <tr>
+                                  <td><b>User department (Section)</b></td>
+                                  <td> {{$department->name}}  ({{$section->name}})</td>
+                              </tr>
+                            @endif
+                          @endforeach
+                        @endif
+                    @endforeach
                     
                   </tbody>
                 </table>

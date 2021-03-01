@@ -77,7 +77,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $roles = Role::all();
-        return view('User.show',compact('user', 'roles'));
+        $sections = Section::all();
+        $departments = Department::all();
+        return view('User.show',compact('user', 'roles', 'sections', 'departments'));
     }
 
     /**
