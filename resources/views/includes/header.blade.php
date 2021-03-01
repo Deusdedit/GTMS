@@ -15,7 +15,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} of <i>{{ (App\Models\Role::find(Auth::user()->role_id))->name }}</i>
+                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} of <i>{{ (App\Models\Section::find(Auth::user()->section_id))->name }}</i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
