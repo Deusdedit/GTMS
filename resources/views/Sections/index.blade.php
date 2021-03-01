@@ -38,13 +38,20 @@
                   </thead>
                   <tbody>
                   @foreach($sections as $section)
-                  @foreach ($departments as $dept)
+                
                   <tr>
                     <td> {{$section->name}} </td>
 
-                        
-                                <td> {{$dept->name}} </td>
-                        
+                    @foreach($departments as $dept)
+                        @if ($dept->id == $section->department_id)
+                            <td>
+                                
+                                    <u> {{$dept->name}} </u>
+                                
+                            </td>   
+                            
+                        @endif
+                    @endforeach
 
                     <td>{{$section->name_abbreviation}}</td>
 
@@ -89,7 +96,7 @@
             
                     
                  
-                    @endforeach
+                    
                   @endforeach
                   </tbody>
                 </table>
