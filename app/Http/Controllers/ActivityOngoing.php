@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Activity;
+Use \Carbon\Carbon;  
+use Auth;
 
 class ActivityOngoing extends Controller
 {
@@ -13,7 +16,10 @@ class ActivityOngoing extends Controller
      */
     public function index()
     {
-        //
+        $activities = Activity::where('status','On going')->orderBy('start_date', 'asc')->get();
+        $logged_id = Auth::user()->id;
+        
+        return view('Activity_ongoing.index',compact('activities', 'logged_id'));
     }
 
     /**

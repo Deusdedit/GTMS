@@ -22,6 +22,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
+                <a href="{{route('ongoing.index')}}">
                     <div class="info-box">
                     <span class="info-box-icon bg-warning"><i class="fas fa-spinner"></i></span>
 
@@ -32,6 +33,7 @@
                     <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
+                    </a>
                 </div>
                 <!-- /.col -->
 

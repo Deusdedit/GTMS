@@ -39,4 +39,18 @@ class PrintReportController extends Controller
         
         return ($pdf->stream('Activity_finished Report.pdf'));
     }
+
+    public function activityOngoing() {
+
+        $activities = Activity::all()->where('status','On going');
+        $logged_id = Auth::user()->id;
+        $usern = User::find($logged_id);
+        $section =Section::find($usern->section_id);
+        $depertment = Department::find($section->department_id);
+        
+        $pdf = PDF::loadView('Activity_ongoing.print_activity', compact('usern','activities','logged_id','section','depertment'));
+        $pdf->setPaper('A4', 'landscape');
+        
+        return ($pdf->stream('Activity_ongoing Report.pdf'));
+    }
 }
