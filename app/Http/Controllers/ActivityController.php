@@ -16,7 +16,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::all();
+        $activities = Activity::orderBy('start_date', 'asc')->get();
         $logged_id = Auth::user()->id;
         
         return view('Activity.index',compact('activities', 'logged_id'));
@@ -127,6 +127,21 @@ class ActivityController extends Controller
         $activity->recommendations = $request['recommendations'];
         $activity->end_date = $now_date;
         $activity->status = "Finished";
+        $activity->save();
+        return redirect()->route('activity.index')->with('success','Congrats activity finished successfully.');
+    }
+
+    public function cancel(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'recommendations' => 'required',           
+        ]);
+
+        $activity = Activity::find($id);
+        $now_date = Carbon::now('Africa/Dar_es_Salaam');
+        $activity->recommendations = $request['recommendations'];
+        $activity->end_date = $now_date;
+        $activity->status = "Incomplete";
         $activity->save();
         return redirect()->route('activity.index')->with('success','Congrats activity finished successfully.');
     }

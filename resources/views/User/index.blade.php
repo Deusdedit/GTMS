@@ -30,7 +30,7 @@
                     <th>Last name</th>
                     <th>First name</th>
                     <th>Email</th>
-                    <th>Role</th>
+                    <th>Section</th>
                     <th>Action </th>
                   </tr>
                   </thead>
@@ -45,9 +45,9 @@
                     <td>{{$user->first_name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        @foreach($roles as $role)
-                            @if($role->id == $user->role_id)
-                                {{$role->name}}
+                        @foreach($sections as $section)
+                            @if($section->id == $user->section_id)
+                                {{$section->name}}
                             @endif
                         @endforeach
                     </td>
