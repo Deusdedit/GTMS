@@ -40,7 +40,7 @@ class SectionController extends Controller
     { $validatedData = $request->validate([
             'name' => 'required',
             'name_abbreviation' => 'required',
-            'department_id' => 'required',
+            
             ]);
        
         $section = new Section();
@@ -91,7 +91,7 @@ class SectionController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'name_abbreviation' => 'required',
-            'department_id' => 'required',
+
            
         ]);
         $section = Section::find($id);

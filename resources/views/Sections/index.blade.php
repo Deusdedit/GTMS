@@ -8,7 +8,7 @@
                 <a href="{{route('printReportActivity')}}" target="_blank">
                 <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
               </a>
-                <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-section">Add new Section</button>
+                
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -38,15 +38,22 @@
                   </thead>
                   <tbody>
                   @foreach($sections as $section)
-
+                
                   <tr>
                     <td> {{$section->name}} </td>
 
-                        @foreach ($departments as $dept)
-                                <td> {{$dept->name}} </td>
-                        @endforeach
+                    @foreach($departments as $dept)
+                        @if ($dept->id == $section->department_id)
+                            <td>
+                                
+                                    <u> {{$dept->name}} </u>
+                                
+                            </td>   
+                            
+                        @endif
+                    @endforeach
 
-                    <td>{{$dept->name_abbreviation}}</td>
+                    <td>{{$section->name_abbreviation}}</td>
 
                     <td>
                         
@@ -88,6 +95,8 @@
 
             
                     
+                 
+                    
                   @endforeach
                   </tbody>
                 </table>
@@ -95,59 +104,7 @@
               <!-- /.card-body -->
             </div>
             
-            <!-- add new section -->
-            <div class="modal fade" id="modal-section">
-                <form role="form" method="post" action="{{ route('section.store') }}" id="sectionForm">
-                    @csrf
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add new section</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="ledgerNumberId">Section Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter section name" name="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Select department</label>
-                                            <select class="form-control select2" style="width: 100%;" name="department_id">
-                                                <option selected="selected" disabled>Select a department...</option>
-                                                @foreach($departments as $dept)
-                                                    <option value="{{$dept->id}}">{{$dept->name}} </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Section abbreviation name</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter section abbrevation names" name="name_abbreviation">
-                                        </div>
-
-                                    </div>   
-                                </div>    
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add section</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
+           
 
 @endsection
 

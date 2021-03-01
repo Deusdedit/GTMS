@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center" >
         <div class="col-md-8" >
-              <br><div  class="row justify-content-center"><h2><b>Action Plan Implementation System</b></h2></div><br>
+              <br><div  class="row justify-content-center"><h2><b>ACTIVITY MANAGEMENT SYSTEM</b></h2></div><br>
             <div class="card" >
                 <div class="card-header" style="background-color:#0F749D;color:white;">{{ __('Login') }}</div>
 

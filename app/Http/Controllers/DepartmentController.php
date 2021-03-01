@@ -39,6 +39,7 @@ class DepartmentController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'name_abbreviation' => 'required',
+            'department_id' => 'required',
                     
         ]);
        
@@ -46,6 +47,7 @@ class DepartmentController extends Controller
         $department = new Department();
         $department->name = $request['name'];
         $department->name_abbreviation = $request['name_abbreviation'];
+        $department->department_id = $request['department_id'];
         $department->save();
         return redirect()->route('activity.index')->with('success','Department added successfully.');
     }

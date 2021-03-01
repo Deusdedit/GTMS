@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
+use App\Models\User;
+use App\Models\Activity;
 
 class HomeController extends Controller
 {
@@ -27,17 +29,28 @@ class HomeController extends Controller
         $roleId = auth()->user()->role_id;
         $role = Role::find($roleId);
 
+        $userId = auth()->user()->id;
+        
+
         // return view('home');
         if ($role->name_abbreviation == 'Admin') {
+            $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
+            $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
+           
 
-            return view('welcomes.admin_welcome');
-        } elseif ($role->name_abbreviation == 'Manager') {
-            
-            return view('welcomes.manager_welcome');
+            return view('welcomes.admin_welcome',compact('fintask','ongotask'));
+
+        } elseif ($role->name_abbreviation == 'MA') {
+            $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
+            $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
+           
+            return view('welcomes.manager_welcome',compact('fintask','ongotask'));
         } 
-            else {
+        else {
 
-            return view('welcomes.employee_welcome');
+            $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
+            $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
+            return view('welcomes.employee_welcome',compact('fintask','ongotask'));
         }
     }
 }
