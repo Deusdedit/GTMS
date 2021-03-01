@@ -45,64 +45,29 @@
             </a>
           </li>
          
+          <li class="nav-item has-treeview">
+            <a href="{{ route('department.index') }}" class="nav-link">
+              <i class="nav-icon fa fa-university"></i>
+              <p>
+                Departments
+              </p>
+            </a>
+          </li>
+
+          
+
+          <li class="nav-item has-treeview">
+            <a href="{{ route('section.index') }}" class="nav-link">
+              <i  class="nav-icon fas fa-sitemap"></i>
+              <p>
+                Sections
+              </p>
+            </a>
+          </li>
 
           @elseif ( Auth::user()->role_id == '2')
           <!-- Manager -->
-          <li class="nav-item has-treeview" >
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Asset Management
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Vehicle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Generator</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Drivers</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Fuels</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Services</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Maintenance</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="far fa-circle nav-icon"></i>
-                  <p>Accidents</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           
           @endif
           <li class="nav-item has-treeview">

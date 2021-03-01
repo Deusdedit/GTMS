@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activity;
-Use \Carbon\Carbon;
+Use \Carbon\Carbon;  
 use Auth;
 
 class ActivityController extends Controller
@@ -114,7 +114,7 @@ class ActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { 
         $activity = Activity::find($id);
         $activity->delete();
         return redirect()->route('activity.index')->with('success', 'Activity Deleted successfully');
