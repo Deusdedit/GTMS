@@ -97,6 +97,7 @@
             $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "print": true,
             });
             $('#example2').DataTable({
             "paging": true,

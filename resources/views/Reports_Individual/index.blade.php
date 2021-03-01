@@ -2,14 +2,7 @@
 
 @section('content')
 
-<div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Individuals Reports </h3>
-                
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                  @if ($message = Session::get('success'))
+            @if ($message = Session::get('success'))
                     <div class="alert alert-success" id="success_element">
                         <p>{{ $message }}</p>
                     </div>
@@ -24,9 +17,101 @@
                         </ul>
                     </div>
                 @endif
-                  
-              </div>
-              <form role="form" method="post" action="{{ route('getIndividual') }}" id="receivingForm">
+                <br>
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Last name</th>
+                    <th>First name</th>
+                    <th>Email</th>
+                    <th>Department </th>
+                    <th>Section </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($users as $user)
+                  <tr>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#modal-individual{{$user->id}}">
+                            <u> {{$user->last_name}} </u>
+                        </a>
+                    </td>
+                    <td>{{$user->first_name}}</td>
+                    <td>{{$user->email}}</td>
+                    
+                    @foreach($sections as $section)
+                        @if($section->id == $user->section_id)
+                            @foreach($departments as $department)
+                                @if($department->id == $section->department_id)
+                                    <td>
+                                        {{$department->name}}
+                                    </td>
+
+                                    <td>
+                                        {{$section->name}}
+                                    </td>
+                                        
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                  </tr>
+
+                  <!-- create new vehicle modal -->
+            <div class="modal fade" id="modal-individual{{$user->id}}">
+                <form role="form" method="post" action="" id="vehicleForm">
+                    @csrf
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Vehicle</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <ul class="nav nav-pills flex-column">
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                        Today
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i> Yesterday
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                        
+                                    </a>
+                                    </li>
+                                </ul>
+                                 
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Add item</button>
+                            </div>
+                            </div>
+                                </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                </form>
+
+                <!-- /.modal-dialog -->
+            </div>
+                  @endforeach
+
+                  </tbody>
+                </table>
+
+            <form role="form" method="post" action="{{ route('getIndividual') }}" id="receivingForm">
                     @csrf
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -71,8 +156,6 @@
                         <!-- /.modal-content -->
                     </div>
             </form>
-              <!-- /.card-body -->
-            </div>
 
 
 @endsection
