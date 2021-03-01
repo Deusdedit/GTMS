@@ -7,11 +7,8 @@ use App\Http\Controllers\PrintReportController;
 use App\Http\Controllers\DepartmentController; 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SectionController;
-<<<<<<< Updated upstream
 use App\Http\Controllers\ReportsController;
-=======
 use App\Http\Controllers\ActivityFinished;
->>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,10 +41,7 @@ Route::resource('user', UserController::class);
 Route::get('printReportActivityFinished',[App\Http\Controllers\PrintReportController::class, 'activityFinished'])->name('printReportActivityFinished');
 Route::resource('department', DepartmentController::class);
 Route::resource('section', SectionController::class);
-<<<<<<< Updated upstream
 
 Route::get('individual',[App\Http\Controllers\ReportsController::class, 'index'])->name('individual');
 Route::post('getIndividual',[App\Http\Controllers\ReportsController::class, 'individual'])->name('getIndividual');
-=======
 Route::resource('finished', ActivityFinished::class);
->>>>>>> Stashed changes
