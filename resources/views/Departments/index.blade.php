@@ -32,7 +32,7 @@
                   <tr>
                     <th>Department Name</th>
                     <th>Department Name Abbreviation</th> 
-                    <th>Acxtion</th> 
+                    <th>Action</th> 
                   </tr>
                   </thead>
                   <tbody>
@@ -48,10 +48,62 @@
                         </a>
                             
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$dept->id}}">Delete</button>
-                                
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-sec{{$dept->id}}">Add section</button>
                             
                     </td>
                   </tr>
+
+                   <!-- add new section -->
+            <div class="modal fade" id="modal-sec{{$dept->id}}">
+                <form role="form" method="post" action="{{ route('section.store') }}" id="sectionForm">
+                    @csrf
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add new section</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="form-group">
+                                                    <label for="assetNameId">Department </label>
+                                                    <input type="text" class="form-control" id="assetNameId" placeholder="Enter Department name" name="department_id" value="{{$dept->id}}" hidden >
+                                                                                                
+                                                    <input type="text" class="form-control" id="assetNameId" value="{{$dept->name}} " disabled >
+
+                                                </div>
+
+                                        <div class="form-group">
+                                            <label for="ledgerNumberId">Section Name</label>
+                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter section name" name="name">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="itemNameId">Section abbreviation name</label>
+                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter section abbrevation names" name="name_abbreviation">
+                                        </div>
+
+                                    </div>   
+                                </div>    
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Add section</button>
+                            </div>
+                            
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                </form>
+                <!-- /.modal-dialog -->
+            </div>
 
                   <!-- deleting activity -->
                   <div class="modal fade" id="modal-sm{{$dept->id}}">

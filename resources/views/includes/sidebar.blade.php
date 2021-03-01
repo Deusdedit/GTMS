@@ -31,6 +31,14 @@
               </p>
             </a> 
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{route('activity.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Activities
+                </p>
+            </a>
+          </li>
          
          
           @if ( Auth::user()->role_id == '1') 
@@ -70,14 +78,7 @@
           
           
           @endif
-          <li class="nav-item has-treeview">
-            <a href="{{route('activity.index')}}" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Activities
-                </p>
-            </a>
-          </li> 
+          
 
           <li class="nav-item has-treeview">
             <a href=" {{ route('change') }}" class="nav-link">
