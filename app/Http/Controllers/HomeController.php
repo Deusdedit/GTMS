@@ -34,15 +34,17 @@ class HomeController extends Controller
 
         // return view('home');
         if ($role->name_abbreviation == 'Admin') {
-
+            $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
+            $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
            
 
-            return view('welcomes.admin_welcome');
+            return view('welcomes.admin_welcome',compact('fintask','ongotask'));
 
         } elseif ($role->name_abbreviation == 'MA') {
-            
+            $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
+            $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
            
-            return view('welcomes.manager_welcome');
+            return view('welcomes.manager_welcome',compact('fintask','ongotask'));
         } 
         else {
 

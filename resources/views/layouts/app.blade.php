@@ -21,7 +21,8 @@
 </head>
 <body>
     <div id="app" >
-        <nav class="navbar navbar-expand-md navbar-light  shadow-sm"style="background-color:#0F749D;" >
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm" >
+        <!-- style="background-color:#0F749D;" -->
             <div class="container" >
                 <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     GST AMS
