@@ -1,189 +1,165 @@
 @extends('layouts.master')
 
 @section('content')
-
 <div class="card">
               <div class="card-header">
                 <h3 class="card-title">All Departments </h3>
-                <a href="{{route('printReportActivity')}}" target="_blank">
-                <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
-              </a>
-                <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-department">Add new Department</button>
+                
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                  @if ($message = Session::get('success'))
+<div class="card-body">
+
+            @if ($message = Session::get('success'))
                     <div class="alert alert-success" id="success_element">
                         <p>{{ $message }}</p>
                     </div>
-                    @endif
-                    @if ($errors->any())
-                        <div class="alert alert-danger" >
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger" >
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Department Name</th>
-                    <th>Department Name Abbreviation</th> 
-                    <th>Action</th> 
+                    <th>Department name</th>
+                    <th>Department abbreviation</th>
                   </tr>
                   </thead>
                   <tbody>
                   @foreach($departments as $dept)
-
                   <tr>
-                    <td> {{$dept->name}} </td>
-                    <td>{{$dept->name_abbreviation}}</td>
-                    <td>
-                        
-                        <a href="{{ route('department.edit', $dept->id) }}">
-                             <button type="button" class="btn btn-success btn-sm" >Edit</button>
-                        </a>
-                            
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$dept->id}}">Delete</button>
-                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-sec{{$dept->id}}">Add section</button>
-                            
-                    </td>
+                        <td>
+                                    <a href="#" data-toggle="modal" data-target="#modal-department{{$dept->id}}">
+                                        <u> {{$dept->name}} </u>
+                                    </a>
+                        </td>
+                           <td>{{$dept->name_abbreviation}}</td>
+                    
                   </tr>
 
-                   <!-- add new section -->
-            <div class="modal fade" id="modal-sec{{$dept->id}}">
-                <form role="form" method="post" action="{{ route('section.store') }}" id="sectionForm">
+                  <!-- create new section modal -->
+            <div class="modal fade" id="modal-department{{$dept->id}}">
+                <form role="form" method="post" action="" id="vehicleForm">
                     @csrf
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                        
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add new section</h4>
+
+                            <div class="modal-header" >
+                                
+                                <h4 class="modal-title">General Report on Specific Date</h4>
+                            
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                    <div class="form-group">
-                                                    <label for="assetNameId">Department </label>
-                                                    <input type="text" class="form-control" id="assetNameId" placeholder="Enter Department name" name="department_id" value="{{$dept->id}}" hidden >
-                                                                                                
-                                                    <input type="text" class="form-control" id="assetNameId" value="{{$dept->name}} " disabled >
-
-                                                </div>
-
-                                        <div class="form-group">
-                                            <label for="ledgerNumberId">Section Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter section name" name="name">
+                            <div class="row">
+                            <div class="col-md-3">
+                                <ul class="nav nav-pills flex-column">
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                        Today
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i> Yesterday
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                         This Week
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                         This Month
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                         This Year
+                                    </a>
+                                    </li>
+                                </ul>
+                                </div>
+                                
+            
+               
+                
+              
+                <div class="col-md-9"> 
+                <div id="accordion">
+                  <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                  <div class="card card-primary">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                          Custom Date
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="card-body">
+                        <div class="row">
+                        <form role="form" method="post" action="" id="dateForm">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                                            <label for="dateId">Start Date</label>
+                                            <input type="date" class="form-control" id="dateId" placeholder="Enter Accident Date " name="date">
                                         </div>
-
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Section abbreviation name</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter section abbrevation names" name="name_abbreviation">
-                                        </div>
-
-                                    </div>   
-                                </div>    
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add section</button>
-                            </div>
                             
+                        </div>
+                        <div class="col-md-6">
+                        <div class="form-group">
+                                            <label for="dateId">End Date</label>
+                                            <input type="date" class="form-control" id="dateId" placeholder="Enter Accident Date " name="date">
+                                        </div>
+
+                        </div>
+                        <div class="justify-content-between">
+                        <button type="submit" class="btn btn-primary">Add item</button>
+                        </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                         </div>
+                            </div>
+                            <div class="modal-footer justify-content-between" style="float:right;">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                            </div>
+                                </div>
                         </div>
                         <!-- /.modal-content -->
                     </div>
                 </form>
+</div>
                 <!-- /.modal-dialog -->
             </div>
-
-                  <!-- deleting activity -->
-                  <div class="modal fade" id="modal-sm{{$dept->id}}">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                    <h4 class="modal-title">Deleting {{$dept->name}} Department</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete <b> {{$dept->name}} </b> department permanently? </p>
-                                </div>
-                                <div class="modal-footer justify-content-between">
-                                    
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                    <form action="{{ route('department.destroy', $dept->id)}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Yes</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-            
-                    
                   @endforeach
+
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            
-            <!-- add new department -->
-            <div class="modal fade" id="modal-department">
-                <form role="form" method="post" action="{{ route('department.store') }}" id="departmentForm">
-                    @csrf
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add new department</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="ledgerNumberId">Department Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter department name" name="name">
-                                        </div>
 
-                                    </div>
+</div> 
 
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Department abbreviation name</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter department abbrevation names" name="name_abbreviation">
-                                        </div>
-
-                                    </div>   
-                                </div>    
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add department</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
-
+</div>
 @endsection
 
 @section('pagescripts')
@@ -196,11 +172,14 @@
     <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
     <script type="text/javascript">
         $(function () {
             $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "order": [[ 2, "desc" ]],
             });
             $('#example2').DataTable({
             "paging": true,
@@ -211,6 +190,9 @@
             "autoWidth": false,
             "responsive": true,
             });
+
+            //Initialize Select2 Elements
+            $('.select2').select2()
             setTimeout(function(){$("#success_element").hide();}, 5000);
         });     
 

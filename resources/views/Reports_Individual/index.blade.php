@@ -2,6 +2,12 @@
 
 @section('content')
 
+<div class="card">
+              <div class="card-header">
+                <h3 class="card-title">All Sections </h3>
+               
+              </div>
+
             @if ($message = Session::get('success'))
                     <div class="alert alert-success" id="success_element">
                         <p>{{ $message }}</p>
@@ -18,6 +24,9 @@
                     </div>
                 @endif
                 <br>
+                <div class="card">
+</div>
+                <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -56,7 +65,7 @@
                         @endif
                     @endforeach
                   </tr>
-
+                </div>
                   <!-- create new vehicle modal -->
             <div class="modal fade" id="modal-individual{{$user->id}}">
                 <form role="form" method="post" action="" id="vehicleForm">
@@ -64,14 +73,18 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
 
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add Vehicle</h4>
+                            <div class="modal-header" >
+                                
+                                <h4 class="modal-title">General Report on Specific Date</h4>
+                            
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
 
                             <div class="modal-body">
+                            <div class="row">
+                            <div class="col-md-3">
                                 <ul class="nav nav-pills flex-column">
                                     <li class="nav-item">
                                     <a href="#" class="nav-link">
@@ -84,12 +97,72 @@
                                         <i class="far fa-circle text-info"></i> Yesterday
                                     </a>
                                     </li>
+<<<<<<< Updated upstream
+=======
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                         This Week
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                         This Month
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle text-info"></i>
+                                         This Year
+                                    </a>
+                                    </li>
+>>>>>>> Stashed changes
                                 </ul>
-                                 
+                                </div>
+                                <div class="col-md-9"> 
+                                <div id="accordion">
+                  <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                  <div class="card card-primary">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                          Custom Date
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="card-body">
+                        <div class="row">
+                        <form role="form" method="post" action="" id="dateForm">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                                            <label for="dateId">Start Date</label>
+                                            <input type="date" class="form-control" id="dateId" placeholder="Enter Accident Date " name="date">
+                                        </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                        <div class="form-group">
+                                            <label for="dateId">End date Date</label>
+                                            <input type="date" class="form-control" id="dateId" placeholder="Enter Accident Date " name="date">
+                                        </div>
+
+                        </div>
+                        <div class="justify-content-between">
+                        <button type="submit" class="btn btn-primary">Add item</button>
+                        </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                         </div>
                             </div>
-                            <div class="modal-footer justify-content-between">
+                            <div class="modal-footer justify-content-between" style="float:right;">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add item</button>
+                                
                             </div>
                             </div>
                                 </div>
@@ -104,7 +177,7 @@
 
                   </tbody>
                 </table>
-
+</div>
             <form role="form" method="post" action="{{ route('getIndividual') }}" id="receivingForm">
                     @csrf
                     <div class="modal-dialog modal-lg">
