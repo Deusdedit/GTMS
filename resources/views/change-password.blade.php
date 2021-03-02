@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-success">Change Password </div>
+                <div class="card-header" style="background-color:#2396c4;color:#FFFFFF">Change Password </div>
                 @if(session()->has('error'))
                     <span class="alert alert-danger">
                         <strong>{{ session()->get('error') }}</strong>
@@ -62,7 +62,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-success">
+                                <button type="submit" class="btn "style="background-color:#2396c4;color:#FFFFFF">
                                     Change Password
                                 </button>
                             </div>
