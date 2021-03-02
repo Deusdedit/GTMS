@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activity;
+use App\Models\User;
 Use \Carbon\Carbon;  
 use Auth;
 
@@ -71,7 +72,8 @@ class ActivityController extends Controller
     public function show($id)
     {
         $activity = Activity::find($id);
-        return view('activity.show',compact('activity'));
+        $users = User::all();
+        return view('activity.show',compact('activity', 'users'));
     }
 
     /**
@@ -144,6 +146,16 @@ class ActivityController extends Controller
         $activity->status = "Incomplete";
         $activity->save();
         return redirect()->route('activity.index')->with('success','Congrats activity finished successfully.');
+    }
+
+    public function start(Request $request, $id)
+    {
+        $activity = Activity::find($id);
+        $now_date = Carbon::now('Africa/Dar_es_Salaam');
+        $activity->start_date = $now_date;
+        $activity->status = "On going";
+        $activity->save();
+        return redirect()->route('activity.index')->with('success','Congrats you started activity successfully.');
     }
 }
 

@@ -48,7 +48,16 @@
                         </a>
                     </td>
                     <td>{{$activity->details}}</td>
-                    <td>{{$activity->start_date}}</td>
+                    <td>
+                        @if($activity->start_date != Null )
+                            {{$activity->start_date}}
+                        @else
+                        <center>
+                            <i class="fas fa-minus-circle" style="color:green;"></i>
+                        </center>
+                        
+                        @endif
+                    </td>
                     <td>
                         @if($activity->end_date != Null )
                             {{$activity->end_date}}
@@ -62,15 +71,21 @@
                     <td>{{$activity->status}}</td>
                     <td>
                     @if($activity->status == "On going" )
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-cancel{{$activity->id}}">Cancel</button>
-                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-finish{{$activity->id}}">Finish</button>
-                    
-
-                        <a href="{{ route('activity.edit', $activity->id) }}">
-                            <button type="button" class="btn btn-success btn-sm" >Edit</button>
-                        </a>
+                        @if($activity->activity_from_user_id != Null )
+                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-cancel{{$activity->id}}">Cancel</button>
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-finish{{$activity->id}}">Finish</button>
+                        @else
+                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-cancel{{$activity->id}}">Cancel</button>
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-finish{{$activity->id}}">Finish</button>
+                            <a href="{{ route('activity.edit', $activity->id) }}">
+                                <button type="button" class="btn btn-success btn-sm" >Edit</button>
+                            </a>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
+                        @endif
                         
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
+
+                    @elseif($activity->status == "Not Started")
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-start{{$activity->id}}">Start</button>
                     @else
                     <center>
                         <i class="fas fa-check" style="color:green;"></i>
@@ -160,6 +175,36 @@
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Cancel activity</button>
+                                </div>
+                                
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                    </form>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- Start activity -->
+                <div class="modal fade" id="modal-start{{$activity->id}}">
+                    <form role="form" method="post" action="{{ route('startActivity', $activity->id) }}" id="activityForm">
+                        @csrf
+                        @method('PATCH')
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                            
+                                <div class="modal-header bg-info">
+                                    <h4 class="modal-title">Start {{$activity->name}} activity</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <p>Are you sure you want to start <b> {{$activity->name}} </b> activity assigned? </p>
+                                </div>
+                                
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Yes! start</button>
                                 </div>
                                 
                             </div>

@@ -30,62 +30,62 @@
         @endif
 
         <form role="form" method="post" action="{{ route('activity.update', $activity->id) }}" id="receivingForm">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header">
-                                <h4 class="modal-title">Edit Activity details</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="AssetName">Activity name</label>
-                                            <input type="text" class="form-control" id="assetNameId" value="{{$activity->name}}" name="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="quantityId">Client</label>
-                                            <input type="text" class="form-control" id="quantityId" value="{{$activity->client}}" name="client">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="supplierId">Expected activity</label>
-                                            <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Details</label>
-                                            <input type="text" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="supplierId">Resources</label>
-                                            <input type="text" class="form-control" id="serialId" value="{{$activity->resources}}" name="resources">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="supplierId">Colaborators</label>
-                                            <input type="text" class="form-control" id="locationId" value="{{$activity->colaborators}}" name="colaborators">
-                                        </div>
-
-                                        
-                                    </div>   
-                                </div>    
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="submit" class="btn btn-success">Edit details</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
+            @csrf
+            @method('PATCH')
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Activity details</h4>
                     </div>
-                </form>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="AssetName">Activity name</label>
+                                    <input type="text" class="form-control" id="assetNameId" value="{{$activity->name}}" name="name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="quantityId">Client</label>
+                                    <input type="text" class="form-control" id="quantityId" value="{{$activity->client}}" name="client">
+                                </div>
+                                <div class="form-group">
+                                    <label for="supplierId">Expected activity</label>
+                                    <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="itemNameId">Details</label>
+                                    <input type="text" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="supplierId">Resources</label>
+                                    <input type="text" class="form-control" id="serialId" value="{{$activity->resources}}" name="resources">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="supplierId">Colaborators</label>
+                                    <input type="text" class="form-control" id="locationId" value="{{$activity->colaborators}}" name="colaborators">
+                                </div>
+
+                                
+                            </div>   
+                        </div>    
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="submit" class="btn btn-success">Edit details</button>
+                    </div>
+                    
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </form>
     </div>
 @endsection
 @section('pagescripts')

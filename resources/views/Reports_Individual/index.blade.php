@@ -84,12 +84,6 @@
                                         <i class="far fa-circle text-info"></i> Yesterday
                                     </a>
                                     </li>
-                                    <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle text-info"></i>
-                                        
-                                    </a>
-                                    </li>
                                 </ul>
                                  
                             </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ActivityFinished;
 use App\Http\Controllers\ActivityOngoing;
+use App\Http\Controllers\AssignController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::post('change-password', [App\Http\Controllers\ChangPasswordController::cl
 Route::get('finishActivity',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
 Route::patch('finishActivity/{id}',[App\Http\Controllers\ActivityController::class, 'finish'])->name('finishActivity');
 Route::patch('cancelActivity/{id}',[App\Http\Controllers\ActivityController::class, 'cancel'])->name('cancelActivity');
+Route::patch('startActivity/{id}',[App\Http\Controllers\ActivityController::class, 'start'])->name('startActivity');
 Route::patch('activate/{id}',[App\Http\Controllers\UserController::class, 'activate'])->name('activate');
 Route::patch('reset/{id}',[App\Http\Controllers\UserController::class, 'reset'])->name('reset');
 Route::resource('activity', ActivityController::class);
@@ -47,3 +49,4 @@ Route::get('individual',[App\Http\Controllers\ReportsController::class, 'index']
 Route::post('getIndividual',[App\Http\Controllers\ReportsController::class, 'individual'])->name('getIndividual');
 Route::resource('finished', ActivityFinished::class);
 Route::resource('ongoing', ActivityOngoing::class);
+Route::resource('assign', AssignController::class);

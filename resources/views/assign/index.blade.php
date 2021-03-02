@@ -3,223 +3,195 @@
 @section('content')
 
 <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">All assigned Activities </h3>
-                <a href="{{route('printReportActivity')}}" target="_blank">
-                <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
-              </a>
-                <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-activity">Add new Activity</button>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                  @if ($message = Session::get('success'))
-                    <div class="alert alert-success" id="success_element">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger" >
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Name of Activity</th>
-                    <th>Details</th> 
-                    <th>Expected Output</th>
-                    <th>Resources</th>
-                    <th>Date Assigned</th>
-                    <th>Duration</th>
-                    <th>Start Date Assigned</th>
-                    <th>Action </th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  @foreach($activities as $activity)
-                  @if($activity->user_id == $logged_id )
-                  <tr>
+    <div class="card-header">
+    <h3 class="card-title">All assigned Activities </h3>
+    <a href="{{route('printReportActivity')}}" target="_blank">
+    <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
+    </a>
+    <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-activity">Assign Activity</button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success" id="success_element">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger" >
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+        <th>Assigned to </th>
+        <th>Activity Name</th>
+        <th>Assigned Date</th>
+        <th>Date assigned to start </th>
+        <th>Days</th>
+        <th>Start Date </th>
+        <th>Status </th>
+        <th>End Date </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($activities as $activity)
+        @if($activity->activity_from_user_id == $logged_id )
+            <tr>
+                <td>
+                    <a href="{{ route('assign.show', $activity->id)}}">
+                        @foreach($users as $user)
+                            @if($user->id == $activity->user_id)
+                                @foreach($sections as $section)
+                                    @if($section->id == $user->section_id)
+                                        @foreach($departments as $department)
+                                            @if($department->id == $section->department_id)
+                                                {{$user->first_name}}  {{$user->last_name}} (<i>{{$section->name}}).</i>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </a>
+                </td>
+                <td>
+                    {{$activity->name}} 
                     
-                    <td>{{$activity->name}}</td>   
-                    <td>{{$activity->details}}</td>
-                    <td>{{$activity->output}}</td>
-                    <td>{{$activity->resources}}</td>
-                    <td>{{$activity->date_assigned}}</td>
-                    <td>{{$activity->duration}}</td>
-                    <td>{{$activity->start_date_assigned}}</td>
+                </td>   
+                <td>{{$activity->assigned_date}}</td>
+                <td>{{ Carbon\Carbon::parse($activity->start_assign_date) ->format('d-m-Y') }}</td>
+                <td>{{$activity->duration}}</td>
+                <td>
+                    @if($activity->start_date != Null )
+                            {{$activity->start_date}}
+                        @else
+                        <center>
+                            <i class="fas fa-minus-circle" style="color:green;"></i>
+                        </center>
+                        
+                        @endif
+                </td>
+                <td>
+                    {{$activity->status}} 
                     
-                    <a href="{{ route('activity.edit', $activity->id) }}">
-                            <button type="button" class="btn btn-success btn-sm" >Edit</button>
-                        </a>
-                    <td>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-sm{{$activity->id}}">Delete</button>
-                    </td>
-                  </tr>
+                </td>
+                <td>
+                    @if($activity->end_date != Null )
+                        {{$activity->end_date}}
+                    @else
+                    <center>
+                        <i class="fas fa-spinner" style="color:green;"></i>
+                    </center>
+                    
+                    @endif                            
+            </tr>
 
-                  <!-- deleting activity -->
-                  <div class="modal fade" id="modal-sm{{$activity->id}}">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                    <h4 class="modal-title">Deleting {{$activity->name}} Activity</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete <b> {{$activity->name}} </b> activity permanently? </p>
-                                </div>
-                                <div class="modal-footer justify-content-between">
-                                    
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                    <form action="{{ route('activity.destroy', $activity->id)}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Yes</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        @endif
+        @endforeach
+        </tbody>
+    </table>
+    </div>
+    <!-- /.card-body -->
+</div>
 
-                  <!-- Finish activity -->
-            <div class="modal fade" id="modal-finish{{$activity->id}}">
-                <form role="form" method="post" action="{{ route('finishActivity', $activity->id) }}" id="activityForm">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header bg-info">
-                                <h4 class="modal-title">Finish {{$activity->name}} activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="ledgerNumberId">Recommendations</label>
-                                    <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
-                                </div>   
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Finish activity</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- Cancel activity -->
-            <div class="modal fade" id="modal-cancel{{$activity->id}}">
-                <form role="form" method="post" action="{{ route('cancelActivity', $activity->id) }}" id="activityForm">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header bg-warning">
-                                <h4 class="modal-title">Cancel {{$activity->name}} activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="ledgerNumberId">Recommendations</label>
-                                    <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
-                                </div>   
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Cancel activity</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </form>
-                <!-- /.modal-dialog -->
-            </div>
-                    @endif
-                  @endforeach
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
+<!-- add new activity -->
+<div class="modal fade" id="modal-activity">
+    <form role="form" method="post" action="{{ route('assign.store') }}" id="activityForm">
+        @csrf
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
             
-            <!-- add new activity -->
-            <div class="modal fade" id="modal-activity">
-                <form role="form" method="post" action="{{ route('activity.store') }}" id="activityForm">
-                    @csrf
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add new activity</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="ledgerNumberId">Name</label>
-                                            <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="quantityId">Client</label>
-                                            <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="costId">Details</label>
-                                            <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="itemNameId">Colaborators</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="supplierId">Expected Output</label>
-                                            <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="totalcostId">Resources</label>
-                                            <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
-                                        </div>
-
-                                    </div>   
-                                </div>    
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Add activity</button>
-                            </div>
-                            
-                        </div>
-                        <!-- /.modal-content -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Assign activity</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Select User</label>
+                        <select class="form-control select2" style="width: 100%;" name="user_id" placeholder="Select a user....">
+                            <option selected="selected" disabled>Full name of Department (Section)...</option>
+                                @foreach($users as $user)
+                                    @foreach($sections as $section)
+                                        @if($section->id == $user->section_id)
+                                            @foreach($departments as $department)
+                                                @if($department->id == $section->department_id)
+                                                <option value="{{$user->id}}">{{$user->first_name}} {{$user->middle_name}} {{$user->last_name}} of <i> {{$department->name}} ({{$section->name}}).</i> </option>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                        </select>
                     </div>
-                </form>
-                <!-- /.modal-dialog -->
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="ledgerNumberId">Activity Name</label>
+                                <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantityId">Client</label>
+                                <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="costId">Activity Details</label>
+                                <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="itemNameId">Date to start activity</label>
+                                <input type="date" class="form-control" id="itemNameId" placeholder="Enter Date to start " name="start_assign_date">
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="itemNameId">Colaborators</label>
+                                <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="supplierId">Expected Output</label>
+                                <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="totalcostId">Resources</label>
+                                <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
+                            </div>
+                            <div class="form-group">
+                                <label for="itemNameIdd">Duration in Days</label>
+                                <input type="number" class="form-control" id="itemNameIdd" placeholder="Enter activity duration " name="duration">
+                            </div>
+
+                        </div>   
+                    </div>    
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Assign activity</button>
+                </div>
+                
             </div>
+            <!-- /.modal-content -->
+        </div>
+    </form>
+    <!-- /.modal-dialog -->
+</div>
 
 @endsection
 
@@ -233,6 +205,7 @@
     <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
     <script type="text/javascript">
         $(function () {
             $("#example1").DataTable({
@@ -249,6 +222,8 @@
             "autoWidth": false,
             "responsive": true,
             });
+            //Initialize Select2 Elements
+            $('.select2').select2()
             setTimeout(function(){$("#success_element").hide();}, 5000);
         });     
 
