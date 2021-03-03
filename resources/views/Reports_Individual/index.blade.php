@@ -97,8 +97,6 @@
                                         <i class="far fa-circle text-info"></i> Yesterday
                                     </a>
                                     </li>
-<<<<<<< Updated upstream
-=======
                                     <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle text-info"></i>
@@ -117,7 +115,6 @@
                                          This Year
                                     </a>
                                     </li>
->>>>>>> Stashed changes
                                 </ul>
                                 </div>
                                 <div class="col-md-9"> 

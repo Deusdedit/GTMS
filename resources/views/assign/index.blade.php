@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="card">
-    <div class="card-header">
+    <div class="card-header"> 
     <h3 class="card-title">All assigned Activities </h3>
-    <a href="{{route('printReportActivity')}}" target="_blank">
+    <a href="{{route('printReportActivityAssigned')}}" target="_blank">
     <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
     </a>
     <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-activity">Assign Activity</button>

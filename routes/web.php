@@ -11,6 +11,7 @@ use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ActivityFinished;
 use App\Http\Controllers\ActivityOngoing;
 use App\Http\Controllers\AssignController;
+use App\Http\Controllers\PrintAssignController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +51,4 @@ Route::post('getIndividual',[App\Http\Controllers\ReportsController::class, 'ind
 Route::resource('finished', ActivityFinished::class);
 Route::resource('ongoing', ActivityOngoing::class);
 Route::resource('assign', AssignController::class);
+Route::get('print_assigned',[App\Http\Controllers\PrintAssignController::class, 'printAssigned'])->name('printReportActivityAssigned');
