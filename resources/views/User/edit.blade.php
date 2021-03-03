@@ -12,6 +12,7 @@
             </a>
         </div>
         <!-- /.card-header -->
+
         <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success" id="success_element">
@@ -53,7 +54,7 @@
 
                                         <div class="form-group">
                                             <label>User role </label>
-                                            <select class="form-control select2" style="width: 100%;" name="role_id">
+                                            <select class="form-control select2" style="width: 100%;" name="role_id" value="{{$user->role_id}}">
                                                 <option value="{{$user->role_id}}" selected="{{$user->role_id}}" disabled>
                                                 @foreach($roles as $role)
                                                     @if ($role->id == $user->role_id)
@@ -80,7 +81,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Select user section</label>
-                                            <select class="form-control select2" style="width: 100%;" name="section_id">
+                                            <select class="form-control select2" style="width: 100%;" name="section_id" value="{{$user->section_id}}">
                                                 <option value="{{$user->section_id}}" selected="{{$user->section_id}}" disabled>
                                                 @foreach($sections as $section)
                                                     @if ($section->id == $user->section_id)
@@ -171,10 +172,10 @@
                     last_name: {
                         required: true,
                     },
-                    role_id: {
+                   /*  role_id: {
                         required: true,
                     },
-
+ */
                     email: {
                         required: true,
                     },
@@ -190,9 +191,9 @@
                 last_name: {
                     required: "Please enter last name",
                 },
-                role_id: {
+               /*  role_id: {
                     required: "Please select role",
-                },
+                }, */
 
                 email: {
                     required: "Please enter email address",

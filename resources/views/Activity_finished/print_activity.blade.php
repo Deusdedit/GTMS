@@ -8,8 +8,8 @@
         <img  style="width:100%;" src="{{ public_path('assets/img/barner.png')}}"></img>
          <br>
         <!--  <br> -->
-        <center><h1><b>TASK MANAGEMENT SYSTEM</b></h1></center>
-         <center><h2><b>DAILY ACTIVITY REPORT</b></h2></center>
+        <center><h1><b>ACTIVITY MANAGEMENT SYSTEM</b></h1></center>
+         <center><h2><b> ACTIVITY REPORT</b></h2></center>
          <br>
          <table width="100%" border='0' style="width:100%; border-collapse:collapse;font-size:11;" >
             <tr>
