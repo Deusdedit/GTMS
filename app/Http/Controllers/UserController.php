@@ -109,7 +109,7 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',
-            'role_id' => 'required',
+           /*  'role_id' => 'required', */
         ]);
 
         $firstName = ucwords($request['first_name']);
@@ -121,9 +121,15 @@ class UserController extends Controller
         $user->middle_name = $secondName;
         $user->last_name = $lastName;
         $user->email = $request['email'];
-        $user->role_id = $request['role_id'];
-        $user->section_id = $request['section_id'];
+        $user_role_id = $request['role_id'];
+        $user_section_id = $request['section_id'];
 
+         if($user_role_id != NULL){
+            $user->role_id = $user_role_id ;
+         }
+         if($user_section_id !=NULL){
+            $user->section_id=$user_section_id;
+         }
         $user->save();
 
         return redirect()->route('user.index')->with('success','User information updated successfully.');

@@ -14,8 +14,8 @@ class AddNewColumnsToActivity extends Migration
     public function up()
     {
         Schema::table('activities', function (Blueprint $table) {
-            $table->unsignedBigInteger('activity_from_user_id');
-            $table->unsignedBigInteger('duration');
+            $table->unsignedBigInteger('activity_from_user_id')->nullable();
+            $table->unsignedBigInteger('duration')->nullable();
             $table->dateTime('assigned_date')->nullable();
             $table->dateTime('start_assign_date')->nullable();
             $table->dateTime('start_date')->nullable();
