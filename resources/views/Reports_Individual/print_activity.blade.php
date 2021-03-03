@@ -8,8 +8,16 @@
         <img  style="width:100%;" src="{{ public_path('assets/img/barner.png')}}"></img>
          <br>
         <!--  <br> -->
-        <center><h1><b>TASK MANAGEMENT SYSTEM</b></h1></center>
+        <center><h1><b>ACTIVITY MANAGEMENT SYSTEM</b></h1></center>
          <center><h2><b>ACTIVITY REPORT</b></h2></center>
+        <!--  <table width="100%" border='0' style="width:100%; border-collapse:collapse;font-size:11;" >
+            <tr>
+                <td><b>Name: </b> <u>{{$usern->first_name}} {{$usern->middle_name}} {{$usern->last_name}}</u></td>
+                <td><b>Depertment: </b> <u>{{$depertment->name}} </u></td>
+                <td><b>Section: </b> <u>{{$section->name}}</u></td>
+            </tr> -->
+         </table>
+
         <table width="100%" border='1' style="width:100%; border-collapse:collapse;font-size:11;" >
             <thead>
                 <tr>
