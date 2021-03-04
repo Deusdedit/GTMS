@@ -48,6 +48,8 @@ Route::get('printReportActivityOngoing',[App\Http\Controllers\PrintReportControl
 Route::get('individual',[App\Http\Controllers\ReportsController::class, 'index'])->name('individual');
 Route::get('getIndividual/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'individual'])->name('getIndividual');
 Route::post('getIndividuals/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'individuals'])->name('getIndividuals');
+Route::get('getsection/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'section'])->name('getsection');
+Route::post('getsections/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'sections'])->name('getsections');
 Route::resource('finished', ActivityFinished::class);
 Route::resource('ongoing', ActivityOngoing::class);
 Route::resource('assign', AssignController::class);

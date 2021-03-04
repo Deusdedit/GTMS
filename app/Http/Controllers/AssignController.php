@@ -72,6 +72,14 @@ class AssignController extends Controller
         $activity->assigned_date = $now_date;
         $activity->status = "Not Started";
         $activity->activity_from_user_id = Auth::user()->id;
+
+        $user = User::find($request['user_id']);
+        $sectio = Section::find($user->section_id);
+        $department = $sectio->department_id;
+
+        $activity->section_id = $user->section_id;
+        $activity->department_id = $department;
+
         $activity->save();
         return redirect()->route('assign.index')->with('success','Activity assigned successfully.');
     }
@@ -140,6 +148,13 @@ class AssignController extends Controller
         $activity->user_id = $request['user_id'];
         $activity->duration = $request['duration'];
         $activity->start_assign_date = $request['start_assign_date'];
+        
+        $user = User::find($request['user_id']);
+        $sectio = Section::find($user->section_id);
+        $department = $sectio->department_id;
+
+        $activity->section_id = $user->section_id;
+        $activity->department_id = $department;
         $activity->save();
         return redirect()->route('assign.index')->with('success','assigned activity updated successfully.');
     }

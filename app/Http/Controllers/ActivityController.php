@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\User;
+use App\Models\Section;
 Use \Carbon\Carbon;  
 use Auth;
 
@@ -59,6 +60,12 @@ class ActivityController extends Controller
         $activity->start_date = $now_date;
         $activity->status = "On going";
         $activity->user_id = Auth::user()->id;
+        $activity->section_id = Auth::user()->section_id;
+
+        $sectio = Section::find(Auth::user()->section_id);
+        $department = $sectio->department_id;
+
+        $activity->department_id = $department;
         $activity->save();
         return redirect()->route('activity.index')->with('success','Activity added successfully.');
     }
