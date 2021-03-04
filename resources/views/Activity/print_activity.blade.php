@@ -24,7 +24,7 @@
                 <tr>
                     <th>S/N</th>
                     <th>Activity Name</th>
-                    <th>Details</th>
+                    <th>Details</th> 
                     <th>Resources</th>
                     <th>Colaborators</th>
                     <th>Output</th>

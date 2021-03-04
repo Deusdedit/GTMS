@@ -14,7 +14,7 @@ use DB;
 
 class ReportsController extends Controller
 {
-    public function index()
+    public function index() 
     {
         $users = User::all();
         $sections = Section::all();
