@@ -255,7 +255,7 @@ class ReportsController extends Controller
         $user = User::where('section_id', $id);
         $users = User::all();
         $section = Section::find($id);
-        $departments = Department::all();
+        $department = Department::find($id);
         $now_date = Carbon::now();
         $now_date = Carbon::now('Africa/Dar_es_Salaam');
         $todays_date = CarbonImmutable::now('Africa/Dar_es_Salaam');
@@ -264,21 +264,21 @@ class ReportsController extends Controller
         if($days == 'today'){
             
             $activities = DB::table('activities')->whereDate('start_date', '=', $today)
-                            ->where('section_id', '=', $section->id)->get(); 
+                            ->where('department_id', '=', $department->id)->get(); 
                             
             $activitiesTo = DB::table('activities')->whereDate('start_assign_date', '=', $today)
-                            ->where('section_id', '=', $section->id)->get();  
-            $pdf = PDF::loadView('Sections.today', compact('activities', 'activitiesTo', 'user', 'today', 'users', 'section', 'departments'));
+                            ->where('department_id', '=', $department->id)->get();  
+            $pdf = PDF::loadView('Departments.today', compact('activities', 'activitiesTo', 'user', 'today', 'users', 'section', 'department'));
             
         }elseif($days == 'yesterday'){
 
             $yesterday = Carbon::yesterday('Africa/Dar_es_Salaam')->format('Y-m-d');
             $activities = DB::table('activities')->whereDate('start_date', '=', $yesterday)
-                            ->where('section_id', '=', $section->id)->get(); 
+                            ->where('department_id', '=', $department->id)->get(); 
                             
             $activitiesTo = DB::table('activities')->whereDate('start_assign_date', '=', $yesterday)
-                             ->where('section_id', '=', $section->id)->get();  
-            $pdf = PDF::loadView('Sections.yesterday', compact('activities', 'activitiesTo', 'user', 'yesterday', 'users', 'section', 'departments', 'today'));
+                             ->where('department_id', '=', $department->id)->get();  
+            $pdf = PDF::loadView('Departments.yesterday', compact('activities', 'activitiesTo', 'user', 'yesterday', 'users', 'section', 'department', 'today'));
 
         }elseif($days == 'thisweek'){
             
@@ -287,12 +287,12 @@ class ReportsController extends Controller
             
             $activities = DB::table('activities')->whereDate('start_date', '>=', $weekStartDate)
                             ->whereDate('start_date', '<=', $weekEndDate)
-                            ->where('section_id', '=', $section->id)->get(); 
+                            ->where('department_id', '=', $department->id)->get(); 
                             
             $activitiesTo = DB::table('activities')->whereDate('start_assign_date', '>=', $weekStartDate)
                             ->whereDate('start_assign_date', '<=', $weekEndDate)
-                            ->where('section_id', '=', $section->id)->get();  
-            $pdf = PDF::loadView('Sections.week', compact('activities', 'activitiesTo', 'user', 'weekStartDate', 'weekEndDate', 'users', 'section', 'departments', 'today'));
+                            ->where('department_id', '=', $department->id)->get();  
+            $pdf = PDF::loadView('Departments.week', compact('activities', 'activitiesTo', 'user', 'weekStartDate', 'weekEndDate', 'users', 'section', 'department', 'today'));
             
         }elseif($days == 'thismonth'){
 
@@ -301,12 +301,12 @@ class ReportsController extends Controller
 
             $activities = DB::table('activities')->whereDate('start_date', '>=', $monthStartDate)
                             ->whereDate('start_date', '<=', $monthEndDate)
-                            ->where('section_id', '=', $section->id)->get(); 
+                            ->where('department_id', '=', $department->id)->get(); 
                             
             $activitiesTo = DB::table('activities')->whereDate('start_assign_date', '>=', $monthStartDate)
                             ->whereDate('start_assign_date', '<=', $monthEndDate)
-                            ->where('section_id', '=', $section->id)->get();  
-            $pdf = PDF::loadView('Sections.month', compact('activities', 'activitiesTo', 'user', 'monthStartDate', 'monthEndDate', 'users', 'section', 'departments', 'today'));
+                            ->where('department_id', '=', $department->id)->get();  
+            $pdf = PDF::loadView('Departments.month', compact('activities', 'activitiesTo', 'user', 'monthStartDate', 'monthEndDate', 'users', 'section', 'department', 'today'));
 
         }elseif($days == 'thisyear'){
 
@@ -315,12 +315,12 @@ class ReportsController extends Controller
 
             $activities = DB::table('activities')->whereDate('start_date', '>=', $yearStartDate)
                             ->whereDate('start_date', '<=', $yearEndDate)
-                            ->where('section_id', '=', $section->id)->get(); 
+                            ->where('department_id', '=', $department->id)->get(); 
                             
             $activitiesTo = DB::table('activities')->whereDate('start_assign_date', '>=', $yearStartDate)
                             ->whereDate('start_assign_date', '<=', $yearEndDate)
-                            ->where('section_id', '=', $section->id)->get();  
-            $pdf = PDF::loadView('Sections.year', compact('activities', 'activitiesTo', 'user', 'yearStartDate', 'yearEndDate', 'users', 'section', 'departments', 'today'));
+                            ->where('department_id', '=', $department->id)->get();  
+            $pdf = PDF::loadView('Departments.year', compact('activities', 'activitiesTo', 'user', 'yearStartDate', 'yearEndDate', 'users', 'section', 'department', 'today'));
 
         }else{
 
@@ -343,6 +343,7 @@ class ReportsController extends Controller
         $user = User::find($id);
         $users = User::all();
         $section = Section::find($id);
+        $department = Department::find($id);
         $departments = Department::all();
         $today = Carbon::today('Africa/Dar_es_Salaam')->format('Y-m-d');
 
@@ -350,12 +351,12 @@ class ReportsController extends Controller
 
             $activities = DB::table('activities')->whereDate('start_date', '>=', $startingDateformated)
                             ->whereDate('start_date', '<=', $endingDateformated)
-                            ->where('section_id', '=', $section->id)->get(); 
+                            ->where('department_id', '=', $department->id)->get(); 
                             
             $activitiesTo = DB::table('activities')->whereDate('start_assign_date', '>=', $startingDateformated)
                             ->whereDate('start_assign_date', '<=', $endingDateformated)
-                            ->where('section_id', '=', $section->id)->get();  
-            $pdf = PDF::loadView('Sections.custom', compact('activities', 'activitiesTo', 'startingDateformated', 'endingDateformated', 'user', 'users', 'section', 'departments', 'today'));
+                            ->where('department_id', '=', $department->id)->get();  
+            $pdf = PDF::loadView('Departments.custom', compact('activities', 'activitiesTo', 'startingDateformated', 'endingDateformated', 'user', 'users', 'section', 'department', 'today'));
         }else{
 
         }

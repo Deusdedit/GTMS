@@ -51,6 +51,8 @@ Route::get('getIndividual/{id}/{days}',[App\Http\Controllers\ReportsController::
 Route::post('getIndividuals/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'individuals'])->name('getIndividuals');
 Route::get('getsection/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'section'])->name('getsection');
 Route::post('getsections/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'sections'])->name('getsections');
+Route::get('getdepartment/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'department'])->name('getdepartment');
+Route::post('getdepartments/{id}/{days}',[App\Http\Controllers\ReportsController::class, 'departments'])->name('getdepartments');
 Route::resource('finished', ActivityFinished::class);
 Route::resource('ongoing', ActivityOngoing::class);
 Route::resource('assign', AssignController::class);
