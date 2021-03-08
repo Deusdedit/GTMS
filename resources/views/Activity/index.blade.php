@@ -140,7 +140,7 @@
                                         <label for="ledgerNumberId">Recommendations</label>
                                         <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
                                     </div>   
-                                    <div class="modal-body">
+                                    
                                     <div class="form-group">
                                         <label for="ledgerNumberId">Feedback</label>
                                         <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter Feedbacks..." name="feedback"></textarea>
