@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Activity;
 Use \Carbon\Carbon;  
 use Auth;
 
-class ActivityFinished extends Controller
+
+class ActivityAssigned extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +18,10 @@ class ActivityFinished extends Controller
      */
     public function index()
     {
-        $activities = Activity::where('status','Finished')->orderBy('start_date', 'asc')->get();
+        $activities = Activity::where('status','Not Started')->orderBy('start_date', 'asc')->get();
         $logged_id = Auth::user()->id;
         
-        return view('Activity_finished.index',compact('activities', 'logged_id'));
+        return view('Activity_assigned.index',compact('activities', 'logged_id'));
     }
 
     /**
@@ -32,7 +34,6 @@ class ActivityFinished extends Controller
         //
     }
 
-    
     /**
      * Store a newly created resource in storage.
      *

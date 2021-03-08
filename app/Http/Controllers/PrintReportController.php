@@ -29,6 +29,24 @@ class PrintReportController extends Controller
         return ($pdf->stream('Activity Report.pdf'));
     }
 
+    public function activityAssigned() {
+
+        $activities = Activity::all()->where('status','Not Started');
+        $logged_id = Auth::user()->id;
+        $usern = User::find($logged_id);
+        $section =Section::find($usern->section_id);
+        $depertment = Department::find($section->department_id);
+      /*   $assigned_by =  $activities->user_id;
+        $user =  User::find($assigned_by); */
+        
+        $pdf = PDF::loadView('Activity_assigned.print_activity', compact('usern','activities','logged_id','section','depertment'));
+        $pdf->setPaper('A4', 'landscape');
+        
+        return ($pdf->stream('Activity_assigned Report.pdf'));
+
+
+    }
+
 
     public function activityFinished() {
 

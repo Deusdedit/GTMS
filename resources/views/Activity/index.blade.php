@@ -160,6 +160,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                             
+                            
                                 <div class="modal-header bg-warning">
                                     <h4 class="modal-title">Cancel {{$activity->name}} activity</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
