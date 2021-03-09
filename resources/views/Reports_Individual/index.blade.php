@@ -60,8 +60,6 @@
                             @endforeach
                         </tr>
                    
-                  
-                
                         <!-- generate report modal   -->
                         <div class="modal fade" id="modal-individual{{$user->id}}">
                             <form role="form" method="post" action="{{ route('getIndividuals', ['id' => $user->id, 'days'=>'custom']) }}" target="_blank" id="vehicleForm">
