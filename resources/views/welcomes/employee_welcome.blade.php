@@ -37,17 +37,20 @@
                 </div>
                 <!-- /.col -->
 
+
                 <div class="col-md-4 col-sm-6 col-12">
+                <a href="{{route('Activity_assigned.index')}}">
                     <div class="info-box">
                     <span class="info-box-icon bg-info"><i class="fas fa-tasks"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Assigned Task</span>
-                        <span class="info-box-number">++</span>
+                        <span class="info-box-number">{{$assigned}}</span>
                     </div>
                     <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
+                    </a>
                 </div>
                 <!-- /.col -->
             </div>

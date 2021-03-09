@@ -140,6 +140,12 @@
                                         <label for="ledgerNumberId">Recommendations</label>
                                         <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
                                     </div>   
+                                    
+                                    <div class="form-group">
+                                        <label for="ledgerNumberId">Feedback</label>
+                                        <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter Feedbacks..." name="feedback"></textarea>
+                                    </div> 
+
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -160,6 +166,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                             
+                            
                                 <div class="modal-header bg-warning">
                                     <h4 class="modal-title">Cancel {{$activity->name}} activity</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -168,8 +175,8 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="ledgerNumberId">Recommendations</label>
-                                        <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter recommendations..." name="recommendations"></textarea>
+                                        <label for="ledgerNumberId">Reason</label>
+                                        <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter a reason..." name="recommendations"></textarea>
                                     </div>   
                                 </div>
                                 <div class="modal-footer justify-content-between">

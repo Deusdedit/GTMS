@@ -131,9 +131,14 @@ class ActivityController extends Controller
 
     public function finish(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'recommendations' => 'required', 
+            'feedback' => 'required',        
+        ]);
         $activity = Activity::find($id);
         $now_date = Carbon::now('Africa/Dar_es_Salaam');
         $activity->recommendations = $request['recommendations'];
+        $activity->feedback = $request['feedback'];
         $activity->end_date = $now_date;
         $activity->status = "Finished";
         $activity->save();
@@ -143,7 +148,8 @@ class ActivityController extends Controller
     public function cancel(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'recommendations' => 'required',           
+            'recommendations' => 'required', 
+                   
         ]);
 
         $activity = Activity::find($id);
@@ -162,7 +168,7 @@ class ActivityController extends Controller
         $activity->start_date = $now_date;
         $activity->status = "On going";
         $activity->save();
-        return redirect()->route('activity.index')->with('success','Congrats you started activity successfully.');
+        return redirect()->route('activity.index')->with('success','Congrats you have started activity successfully.');
     }
 }
 

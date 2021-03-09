@@ -32,25 +32,31 @@ class HomeController extends Controller
         $userId = auth()->user()->id;
         
 
+
         // return view('home');
         if ($role->name_abbreviation == 'Admin') {
             $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
             $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
+           /*  $assigned =  Activity::where('user_id',$userId)->whereNotNull('activity_from_user_id')
+            ->count(); */
+             $assigned=  Activity::where('user_id',$userId)->where('status','Not Started')->count();
            
 
-            return view('welcomes.admin_welcome',compact('fintask','ongotask'));
+            return view('welcomes.admin_welcome',compact('fintask','ongotask','assigned'));
 
         } elseif ($role->name_abbreviation == 'MA') {
             $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
             $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
+            $assigned=  Activity::where('user_id',$userId)->where('status','Not Started')->count();
            
-            return view('welcomes.manager_welcome',compact('fintask','ongotask'));
+            return view('welcomes.manager_welcome',compact('fintask','ongotask','assigned'));
         } 
         else {
 
             $fintask = Activity::where('user_id',$userId)->where('status','Finished')->count();
             $ongotask = Activity::where('user_id',$userId)->where('status','On going')->count();
-            return view('welcomes.employee_welcome',compact('fintask','ongotask'));
+            $assigned=  Activity::where('user_id',$userId)->where('status','Not Started')->count();
+            return view('welcomes.employee_welcome',compact('fintask','ongotask','assigned'));
         }
     }
 }
