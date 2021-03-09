@@ -131,6 +131,10 @@ class ActivityController extends Controller
 
     public function finish(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'recommendations' => 'required', 
+            'feedback' => 'required',        
+        ]);
         $activity = Activity::find($id);
         $now_date = Carbon::now('Africa/Dar_es_Salaam');
         $activity->recommendations = $request['recommendations'];
@@ -145,7 +149,7 @@ class ActivityController extends Controller
     {
         $validatedData = $request->validate([
             'recommendations' => 'required', 
-            'feedback' => 'required',           
+                   
         ]);
 
         $activity = Activity::find($id);
