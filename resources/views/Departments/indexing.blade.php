@@ -30,7 +30,6 @@
                         <th>Department name</th>
                         <th>Department Abbreviation</th>
                         <th>Action</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
