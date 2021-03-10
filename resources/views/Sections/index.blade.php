@@ -102,10 +102,6 @@
                                 </ul>
                                 </div>
                                 
-            
-               
-                
-              
                 <div class="col-md-9"> 
                 <div id="accordion">
                   <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->

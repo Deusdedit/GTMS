@@ -80,7 +80,7 @@ class ActivityController extends Controller
     {
         $activity = Activity::find($id);
         $users = User::all();
-        return view('activity.show',compact('activity', 'users'));
+        return view('Activity.show',compact('activity', 'users'));
     }
 
     /**
