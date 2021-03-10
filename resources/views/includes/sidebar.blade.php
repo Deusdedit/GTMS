@@ -54,18 +54,15 @@
           </li>
          
           <li class="nav-item has-treeview">
-            <a href="{{ route('department.index') }}" class="nav-link">
+            <a href="{{ route('departmenting') }}" class="nav-link">
               <i class="nav-icon fa fa-university"></i>
               <p>
                 Departments
               </p>
             </a>
           </li>
-
-          
-
           <li class="nav-item has-treeview">
-            <a href="{{ route('section.index') }}" class="nav-link">
+            <a href="{{ route('sectioning') }}" class="nav-link">
               <i  class="nav-icon fas fa-sitemap"></i>
               <p>
                 Sections

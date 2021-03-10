@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Edit selected Section</h3>
-            <a href="{{ route('section.index') }}">
+            <a href="{{ route('sectioning') }}">
                 <button type="button" class="btn btn-primary btn-sm" style="float:right">Back to All Sections</button>
             </a>
         </div>
@@ -45,21 +45,21 @@
                                             <label for="driverId">Section Name</label>
                                             <input type="text" class="form-control" id="departmentId" placeholder="Enter Department Name" value="{{$section->name}}" name="name">
                                         </div>
-
-                                        
                                         <div class="form-group">
                                             <label>Select department</label>
                                             <select class="form-control select2" style="width: 100%;" name="department_id" placeholder="Select department...." value="{{$section->department_id}}">
-                                                <option value="{{$section_dept->name}}" selected="{{$section_dept->name}}" disabled>{{$section_dept->name}}</option>
+                                                <option value="{{$section->department_id}}" selected="{{$section->department_id}}" disabled>
+                                                    @foreach($departments as $dept)
+                                                        @if($dept->id == $section->department_id)
+                                                            {{$dept->name}}
+                                                        @endif
+                                                    @endforeach
+                                                </option>
                                                 @foreach($departments as $dept)
                                                     <option value="{{$dept->id}}">{{$dept->name}} </option>
                                                 @endforeach
                                             </select>
                                         </div>
-
-                                        
-
-                                        
                                     </div>
 
                                     <div class="col-6">
@@ -67,19 +67,13 @@
                                             <label for="licenseId">Section abbreviation</label>
                                             <input type="text" class="form-control" id="departmentAbbId" placeholder="Enter Department abbreviation" value="{{$section->name_abbreviation}}" name="name_abbreviation">
                                         </div>
-
-                                        
-
-                                        
                                     </div>   
                                 </div>    
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="submit" class="btn btn-success">Edit Section</button>
                             </div>
-                            
                         </div>
-                        <!-- /.modal-content -->
                     </div>
                 </form>
     </div>
