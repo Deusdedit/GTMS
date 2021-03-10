@@ -59,6 +59,10 @@
                       <td>{{$activity->status}}</td>
                     </tr>
                     <tr>
+                      <td><b>Feedback</b></td>
+                      <td>{{$activity->feedback}}</td>
+                    </tr>
+                    <tr>
                       <td><b>Recommendations</b></td>
                       <td>{{$activity->recommendations}}</td>
                     </tr>

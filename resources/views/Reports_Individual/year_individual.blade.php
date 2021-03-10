@@ -56,6 +56,7 @@
                     <th>Start date </th>
                     <th>End Date</th>
                     <th>Status</th>
+                    <th>Feedback</th>
                     <th>Recommendation</th>
                 </tr>
             </thead>
@@ -95,6 +96,7 @@
                                 @endif
                             </td>
                             <td>{{$activity->status}}</td>
+                            <td>{{$activity->feedback}}</td>
                             <td>
                                 @if($activity->recommendations != Null )
                                     {{$activity->recommendations}}
@@ -124,6 +126,7 @@
                     <th>Start date </th>
                     <th>End Date</th>
                     <th>Status</th>
+                    <th>Feedback</th>
                     <th>Recommendation</th>
                 </tr>
             </thead>
@@ -154,6 +157,7 @@
                                 @endif
                             </td>
                             <td>{{$activity->status}}</td>
+                            <td>{{$activity->feedback}}</td>
                             <td>
                                 @if($activity->recommendations != Null )
                                     {{$activity->recommendations}}
