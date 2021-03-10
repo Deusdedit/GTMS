@@ -17,6 +17,11 @@ class DepartmentController extends Controller
         $departments = Department::all();
         return view('Departments.index',compact('departments')); 
     }
+    public function indexing() 
+    {
+        $departments = Department::all();
+        return view('Departments.indexing',compact('departments')); 
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -39,17 +44,14 @@ class DepartmentController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'name_abbreviation' => 'required',
-            'department_id' => 'required',
-                    
         ]);
        
 
         $department = new Department();
         $department->name = $request['name'];
         $department->name_abbreviation = $request['name_abbreviation'];
-        $department->department_id = $request['department_id'];
         $department->save();
-        return redirect()->route('activity.index')->with('success','Department added successfully.');
+        return redirect()->route('departmenting')->with('success','Department added successfully.');
     }
 
     /**
@@ -86,15 +88,11 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
         $department = Department::find($id);
         $department->name = $request['name'];
         $department->name_abbreviation = $request['name_abbreviation'];
         $department->save();
-        return redirect()->route('department.index')->with('success','Department updated successfully.');
-    
-
-
+        return redirect()->route('departmenting')->with('success','Department updated successfully.');
     }
 
     /**
@@ -105,10 +103,9 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        
         $department = Department::find($id);
         $department->delete();
-        return redirect()->route('department.index')->with('success', 'Department Deleted successfully');
+        return redirect()->route('departmenting')->with('success', 'Department Deleted successfully');
   
     }
 }

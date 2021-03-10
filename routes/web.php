@@ -44,6 +44,8 @@ Route::resource('activity', ActivityController::class);
 Route::get('printReportActivity',[App\Http\Controllers\PrintReportController::class, 'activity'])->name('printReportActivity');
 Route::resource('user', UserController::class);
 Route::get('printReportActivityFinished',[App\Http\Controllers\PrintReportController::class, 'activityFinished'])->name('printReportActivityFinished');
+Route::get('departmenting',[App\Http\Controllers\DepartmentController::class, 'indexing'])->name('departmenting');
+Route::get('sectioning',[App\Http\Controllers\SectionController::class, 'indexing'])->name('sectioning');
 Route::resource('department', DepartmentController::class);
 Route::resource('section', SectionController::class);
 Route::get('printReportActivityOngoing',[App\Http\Controllers\PrintReportController::class, 'activityOngoing'])->name('printReportActivityOngoing');

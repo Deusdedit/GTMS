@@ -19,6 +19,12 @@ class SectionController extends Controller
         $departments = Department::all();
         return view('Sections.index',compact('departments','sections'));
     }
+    public function indexing()
+    {
+        $sections = Section::all();
+        $departments = Department::all();
+        return view('Sections.indexing',compact('departments','sections'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +54,7 @@ class SectionController extends Controller
         $section->name_abbreviation = $request['name_abbreviation'];
         $section->department_id = $request['department_id'];
         $section->save();
-        return redirect()->route('section.index')->with('success','Section added successfully.');
+        return redirect()->route('sectioning')->with('success','Section added successfully.');
    
     }
 
@@ -104,7 +110,7 @@ class SectionController extends Controller
         $section->name_abbreviation = $request['name_abbreviation'];
         $section->save();
         $section_dept -> save();
-        return redirect()->route('section.index')->with('success', 'section updated successfully');
+        return redirect()->route('sectioning')->with('success', 'section updated successfully');
     }
 
     /**
@@ -117,7 +123,7 @@ class SectionController extends Controller
     {
         $section = Section::find($id);
         $section->delete();
-        return redirect()->route('section.index')->with('success', 'Section Deleted successfully');
+        return redirect()->route('sectioning')->with('success', 'Section Deleted successfully');
   
     }
 }

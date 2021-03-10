@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Edit selected Department</h3>
-            <a href="{{ route('department.index') }}">
+            <a href="{{ route('departmenting') }}">
                 <button type="button" class="btn btn-primary btn-sm" style="float:right">Back to All Departments</button>
             </a>
         </div>
