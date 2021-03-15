@@ -4,7 +4,7 @@
 
 <br>
 <section class="content">
-        <div class="container-fluid">
+        <div class="container-fluid style='background-image:flag.png;'">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-12">
                     <a href="{{route('finished.index')}}">

@@ -6,7 +6,7 @@
 <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-12">
+                <div class="col-md-4 col-sm-6 col-12" style="background-image:url('/images/flag.png');">
                 <a href="{{route('finished.index')}}">
                         <div class="info-box">
                             <span class="info-box-icon bg-success"><i class="fas fa-check"></i></span>

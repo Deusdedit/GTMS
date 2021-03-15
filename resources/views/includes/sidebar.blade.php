@@ -1,5 +1,5 @@
 <!-- Brand Logo -->
-<div  style="background-color:#0F749D;">
+<div  style="background-color:black;">
 <a href="#" class="brand-link">
       <img src="{{asset('assets/dist/img/logo.jpg')}}" alt="GST Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
