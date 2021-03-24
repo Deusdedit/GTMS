@@ -14,7 +14,7 @@
          <table width="100%" border='0' style="width:100%; border-collapse:collapse;font-size:11;" >
             <tr>
                 <td><b>Name: </b> <u>{{$usern->first_name}} {{$usern->middle_name}} {{$usern->last_name}}</u></td>
-                <td><b>Depertment: </b> <u>{{$depertment->name}} </u></td>
+                <td><b>Department: </b> <u>{{$depertment->name}} </u></td>
                 <td><b>Section: </b> <u>{{$section->name}}</u></td>
             </tr>
          </table>
@@ -26,7 +26,7 @@
                     <th>Activity Name</th>
                     <th>Details</th>
                     <th>Resources</th>
-                    <th>Colaborators</th>
+                    <th>Collaborators</th>
                     <th>Output</th>
                     <th>Start date </th>
                     <th>End Date</th>
