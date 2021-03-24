@@ -25,7 +25,7 @@
                     <th>Activity Name</th>
                     <th>Details</th>
                     <th>Resources</th>
-                    <th>Colaborators</th>
+                    <th>Collaborators</th>
                     <th>Output</th>
                     <th>Start date </th>
                     <th>End Date</th>

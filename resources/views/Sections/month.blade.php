@@ -39,7 +39,7 @@
                     <th>Details</th>
                     <th>Resources</th>
                     <th>Client</th>
-                    <th>Colaborators</th>
+                    <th>Collaborators</th>
                     <th>Expected Output</th>
                     <th>Assigned date</th>
                     <th>Duration</th>
@@ -120,7 +120,7 @@
                     <th>Details</th>
                     <th>Resources</th>
                     <th>Client</th>
-                    <th>Colaborators</th>
+                    <th>Collaborators</th>
                     <th>Expected Output</th>
                     <th>Start date </th>
                     <th>End Date</th>

@@ -70,7 +70,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="supplierId">Colaborators</label>
+                                            <label for="supplierId">Collaborators</label>
                                             <input type="text" class="form-control" id="locationId" value="{{$activity->colaborators}}" name="colaborators">
                                         </div>
 

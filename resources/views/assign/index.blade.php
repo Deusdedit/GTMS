@@ -147,10 +147,7 @@
                                 <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
                             </div>
 
-                            <div class="form-group">
-                                <label for="costId">Activity Details <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
-                                <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
-                            </div>
+                            
 
                             <div class="form-group">
                                 <label for="itemNameId">Date to start activity <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
@@ -165,10 +162,7 @@
                                 <input type="text" class="form-control" id="itemNameId" placeholder="Enter collaborators names" name="colaborators">
                             </div>
 
-                            <div class="form-group">
-                                <label for="supplierId">Expected Output</label>
-                                <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
-                            </div>
+                            
 
                             <div class="form-group">
                                 <label for="totalcostId">Resources <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
@@ -181,6 +175,14 @@
 
                         </div>   
                     </div>    
+                    <div class="form-group">
+                                <label for="supplierId">Expected Output</label>
+                                <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
+                            </div>
+                            <div class="form-group">
+                                <label for="costId">Activity Details <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
+                                <textarea rows="3" class="form-control" id="costId" placeholder="Enter activity details" name="details"></textarea>
+                            </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -253,7 +255,7 @@
 
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="itemNameId">Colaborators</label>
+                                <label for="itemNameId">Collaborators</label>
                                 <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
                             </div>
 

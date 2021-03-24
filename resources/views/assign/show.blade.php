@@ -49,7 +49,7 @@
           <td>{{$activity->resources}}</td>
         </tr>
         <tr>
-          <td><b>Colaborators</b></td>
+          <td><b>Collaborators</b></td>
           <td>{{$activity->colaborators}}</td>
         </tr>
         <tr>

@@ -81,10 +81,7 @@
                                 <label for="quantityId">Client</label>
                                 <input type="text" class="form-control" id="quantityId" value="{{$activity->client}}" name="client">
                             </div>
-                            <div class="form-group">
-                                <label for="supplierId">Expected Output</label>
-                                <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="itemNameId">Date to start activity. Previous date was {{Carbon\Carbon::parse($activity->start_assign_date)->format('d-m-Y')}}</label>
                                 <input type="date" class="form-control" id="itemNameId" value="{{$activity->start_assign_date}}" name="start_assign_date">
@@ -92,10 +89,7 @@
                         </div>
 
                         <div class="col-6">
-                            <div class="form-group">
-                                <label for="itemNameId">Activity Details</label>
-                                <input type="text" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">
-                            </div>
+                           
 
                             <div class="form-group">
                                 <label for="supplierId">Resources</label>
@@ -112,7 +106,15 @@
                             </div>
                             
                         </div>   
-                    </div>    
+                    </div>  
+                    <div class="form-group">
+                                <label for="supplierId">Expected Output</label>
+                                <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
+                            </div>  
+                            <div class="form-group">
+                                <label for="itemNameId">Activity Details</label>
+                                <textarea rows="3" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">{{$activity->details}}</textarea>
+                            </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="submit" class="btn btn-success">Edit details</button>

@@ -261,7 +261,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="itemNameId">Collaborators</label>
-                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
+                                            <input type="text" class="form-control" id="itemNameId" placeholder="Enter collaborators names" name="colaborators">
                                         </div>
 
                                        
