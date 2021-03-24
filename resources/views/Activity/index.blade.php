@@ -142,7 +142,7 @@
                                     </div>   
                                     
                                     <div class="form-group">
-                                        <label for="ledgerNumberId">Feedback</label>
+                                        <label for="ledgerNumberId">Feedback <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                         <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter Feedbacks..." name="feedback"></textarea>
                                     </div> 
 
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="ledgerNumberId">Reason</label>
+                                        <label for="ledgerNumberId">Reason <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                         <textarea class="form-control" rows="3" id="ledgerNumberId" placeholder="Enter a reason..." name="recommendations"></textarea>
                                     </div>   
                                 </div>
@@ -245,7 +245,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="ledgerNumberId">Name</label>
+                                            <label for="ledgerNumberId">Name  <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name" >
                                         </div>
 
@@ -254,31 +254,33 @@
                                             <input type="text" class="form-control" id="quantityId" placeholder="Enter Client name" name="client">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="costId">Details</label>
-                                            <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
-                                        </div>
+                                        
 
                                     </div>
 
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="itemNameId">Colaborators</label>
+                                            <label for="itemNameId">Collaborators</label>
                                             <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="supplierId">Expected Output</label>
-                                            <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
-                                        </div>
+                                       
 
                                         <div class="form-group">
-                                            <label for="totalcostId">Resources</label>
+                                            <label for="totalcostId">Resources <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
                                         </div>
 
                                     </div>   
                                 </div>    
+                                <div class="form-group">
+                                            <label for="supplierId">Expected Output <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
+                                            <input type="text" class="form-control" id="supplierId" placeholder="Enter expected output" name="output">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="costId">Details <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
+                                            <textarea rows="3" class="form-control" id="costId" placeholder="Enter activity details" name="details"></textarea>
+                                        </div>
                             </div>
                             <div class="modal-footer justify-content-between" style="background-color:#2396c4;" >
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

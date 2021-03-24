@@ -117,7 +117,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Select User</label>
+                        <label>Select User <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                         <select class="form-control select2" style="width: 100%;" name="user_id" placeholder="Select a user....">
                             <option selected="selected" disabled>Full name of Department (Section)...</option>
                                 @foreach($users as $user)
@@ -138,7 +138,7 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="ledgerNumberId">Activity Name</label>
+                                <label for="ledgerNumberId">Activity Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                 <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter activity name" name="name">
                             </div>
 
@@ -148,12 +148,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="costId">Activity Details</label>
+                                <label for="costId">Activity Details <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                 <input type="text" class="form-control" id="costId" placeholder="Enter activity details" name="details">
                             </div>
 
                             <div class="form-group">
-                                <label for="itemNameId">Date to start activity</label>
+                                <label for="itemNameId">Date to start activity <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                 <input type="date" class="form-control" id="itemNameId" placeholder="Enter Date to start " name="start_assign_date">
                             </div>
 
@@ -161,8 +161,8 @@
 
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="itemNameId">Colaborators</label>
-                                <input type="text" class="form-control" id="itemNameId" placeholder="Enter colaborators names" name="colaborators">
+                                <label for="itemNameId">Collaborators</label>
+                                <input type="text" class="form-control" id="itemNameId" placeholder="Enter collaborators names" name="colaborators">
                             </div>
 
                             <div class="form-group">
@@ -171,11 +171,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="totalcostId">Resources</label>
+                                <label for="totalcostId">Resources <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                 <input type="text" class="form-control" id="totalcostId" placeholder="Enter resources" name="resources">
                             </div>
                             <div class="form-group">
-                                <label for="itemNameIdd">Duration in Days</label>
+                                <label for="itemNameIdd">Duration in Days <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                 <input type="number" class="form-control" id="itemNameIdd" placeholder="Enter activity duration " name="duration">
                             </div>
 

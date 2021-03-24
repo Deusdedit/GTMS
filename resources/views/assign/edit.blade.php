@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label>Select User</label>
                         <select class="form-control select2" style="width: 100%;" name="user_id" placeholder="Select a user....">
-                            <option value="{{$activity->user_id}}" selected="selected" disabled>
+                            <option value="{{$activity->user_id}}" selected >
                                 @foreach($users as $user)
                                     @if($user->id == $activity->user_id)
                                         @foreach($sections as $section)
@@ -103,7 +103,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="supplierId">Colaborators</label>
+                                <label for="supplierId">Collaborators</label>
                                 <input type="text" class="form-control" id="locationId" value="{{$activity->colaborators}}" name="colaborators">
                             </div>
                             <div class="form-group">

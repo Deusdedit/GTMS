@@ -41,42 +41,45 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
+                            
                                 <div class="form-group">
-                                    <label for="AssetName">Activity name</label>
-                                    <input type="text" class="form-control" id="assetNameId" value="{{$activity->name}}" name="name">
+                                
+                                    <label for="AssetName">Activity name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
+                                    <!-- <p></p> -->
+                                     <input type="text" class="form-control" id="assetNameId" value="{{$activity->name}}" name="name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="quantityId">Client</label>
                                     <input type="text" class="form-control" id="quantityId" value="{{$activity->client}}" name="client">
                                 </div>
-                                <div class="form-group">
-                                    <label for="supplierId">Expected activity</label>
-                                    <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
-                                </div>
-
-
+                                
                             </div>
 
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label for="itemNameId">Details</label>
-                                    <input type="text" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">
-                                </div>
+                               
 
                                 <div class="form-group">
-                                    <label for="supplierId">Resources</label>
+                                    <label for="supplierId">Resources <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                     <input type="text" class="form-control" id="serialId" value="{{$activity->resources}}" name="resources">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="supplierId">Colaborators</label>
+                                    <label for="supplierId">Collaborators</label>
                                     <input type="text" class="form-control" id="locationId" value="{{$activity->colaborators}}" name="colaborators">
                                 </div>
 
-                                
-                            </div>   
-                        </div>    
+                            </div>  
+                            
+                        </div>   
+                        <div class="form-group">
+                                    <label for="supplierId">Expected output <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
+                                    <input type="text" class="form-control" id="activityId" value="{{$activity->output}}" name="output">
+                                </div>
+                        <div class="form-group">
+                                    <label for="itemNameId">Details <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
+                                    <textarea rows="3" class="form-control" id="AssetSerialId" value="{{$activity->details}}" name="details">{{$activity->details}}</textarea>
+                                </div>  
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="submit" class="btn btn-success">Edit details</button>
