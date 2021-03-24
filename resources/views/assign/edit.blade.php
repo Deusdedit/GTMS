@@ -102,7 +102,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="itemNameIdd">Duration in Days</label>
-                                <input type="number" class="form-control" id="itemNameIdd" value="{{$activity->duration}}" name="duration">
+                                <input type="number" min="1" class="form-control" id="itemNameIdd" value="{{$activity->duration}}" name="duration">
                             </div>
                             
                         </div>   

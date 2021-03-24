@@ -170,7 +170,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="itemNameIdd">Duration in Days <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
-                                <input type="number" class="form-control" id="itemNameIdd" placeholder="Enter activity duration " name="duration">
+                                <input type="number" min="1" class="form-control" id="itemNameIdd" placeholder="Enter activity duration " name="duration">
                             </div>
 
                         </div>   
@@ -339,6 +339,12 @@
                     resources: {
                         required: true,
                     },
+                    duration: {
+                        required: true,
+                    },
+                    start_assign_date: {
+                        required: true,
+                    },
                     
             },
             messages: {
@@ -350,6 +356,12 @@
                 },
                 resources: {
                     required: "Please enter resources",
+                },
+                duration: {
+                    required: "Please enter duration",
+                },
+                start_assign_date: {
+                    required: "Please enter date",
                 },
             },
                 errorElement: 'span',
