@@ -42,11 +42,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="driverId">Section Name</label>
+                                            <label for="driverId">Section Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="departmentId" placeholder="Enter Department Name" value="{{$section->name}}" name="name">
                                         </div>
                                         <div class="form-group">
-                                            <label>Select department</label>
+                                            <label>Select department <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <select class="form-control select2" style="width: 100%;" name="department_id" placeholder="Select department...." value="{{$section->department_id}}">
                                                 <option value="{{$section->department_id}}" selected="{{$section->department_id}}" disabled>
                                                     @foreach($departments as $dept)
@@ -64,7 +64,7 @@
 
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="licenseId">Section abbreviation</label>
+                                            <label for="licenseId">Section abbreviation <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="departmentAbbId" placeholder="Enter Department abbreviation" value="{{$section->name_abbreviation}}" name="name_abbreviation">
                                         </div>
                                     </div>   

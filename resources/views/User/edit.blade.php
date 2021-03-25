@@ -43,17 +43,17 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="AssetName">First name</label>
+                                            <label for="AssetName">First name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="assetNameId" placeholder="Enter First name" value="{{$user->first_name}}" name="first_name">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="AssetName">Last name</label>
+                                            <label for="AssetName">Last name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="assetNameId" placeholder="Enter Last name" value="{{$user->last_name}}" name="last_name">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>User role </label>
+                                            <label>User role <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <select class="form-control select2" style="width: 100%;" name="role_id" value="{{$user->role_id}}">
                                                 <option value="{{$user->role_id}}" selected="{{$user->role_id}}" disabled>
                                                 @foreach($roles as $role)
@@ -76,11 +76,11 @@
                                             <input type="text" class="form-control" id="assetNameId" placeholder="Enter middle name" value="{{$user->middle_name}}" name="middle_name">
                                         </div>
                                         <div class="form-group">
-                                            <label for="itemNameId">Email</label>
+                                            <label for="itemNameId">Email <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="AssetSerialId" placeholder="Enter email" value="{{$user->email}}" name="email">
                                         </div>
                                         <div class="form-group">
-                                            <label>Select user section</label>
+                                            <label>Select user section <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <select class="form-control select2" style="width: 100%;" name="section_id" value="{{$user->section_id}}">
                                                 <option value="{{$user->section_id}}" selected="{{$user->section_id}}" disabled>
                                                 @foreach($sections as $section)

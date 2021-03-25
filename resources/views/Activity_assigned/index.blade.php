@@ -8,7 +8,7 @@
                 <a href="{{route('printReportActivityAssigned')}}" target="_blank">
                 <button type="button" class="btn btn-success btn-sm" style="float:right" ><i class="fas fa-print"></i> Print </button>
               </a>
-                <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-activity">Add new Activity</button>
+                <!-- <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-right:10px;" data-toggle="modal" data-target="#modal-activity">Add new Activity</button> -->
               </div>
               <!-- /.card-header -->
               <div class="card-body">

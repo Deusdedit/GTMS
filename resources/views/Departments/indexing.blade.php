@@ -69,13 +69,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ledgerNumberId">Department Name</label>
+                                                        <label for="ledgerNumberId">Department Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                                         <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter department name" name="name">
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
-                                                        <label for="itemNameId">Department abbreviation name</label>
+                                                        <label for="itemNameId">Department abbreviation name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                                         <input type="text" class="form-control" id="itemNameId" placeholder="Enter department abbrevation names" name="name_abbreviation">
                                                     </div>
                                                 </div>   
@@ -117,13 +117,13 @@
 
                                                 <div class="col-6">
                                                     <div class="form-group">
-                                                        <label for="ledgerNumberId">Section Name</label>
+                                                        <label for="ledgerNumberId">Section Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                                         <input type="text" class="form-control" id="ledgerNumberId" placeholder="Enter section name" name="name">
                                                     </div>
                                                 </div>   
                                             </div>    
                                             <div class="form-group">
-                                                        <label for="itemNameId">Section abbreviation name</label>
+                                                        <label for="itemNameId">Section abbreviation name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                                         <input type="text" class="form-control" id="itemNameId" placeholder="Enter section abbrevation names" name="name_abbreviation">
                                                     </div>
                                         </div>

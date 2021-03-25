@@ -42,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="driverId">Department Name</label>
+                                            <label for="driverId">Department Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="departmentId" placeholder="Enter Department Name" value="{{$departments->name}}" name="name">
                                         </div>
 
@@ -53,7 +53,7 @@
 
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="licenseId">Department abbreviation</label>
+                                            <label for="licenseId">Department abbreviation <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="departmentAbbId" placeholder="Enter Department abbreviation" value="{{$departments->name_abbreviation}}" name="name_abbreviation">
                                         </div>
 

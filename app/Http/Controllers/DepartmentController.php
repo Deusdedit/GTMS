@@ -50,7 +50,21 @@ class DepartmentController extends Controller
         $department = new Department();
         $department->name = $request['name'];
         $department->name_abbreviation = $request['name_abbreviation'];
-        $department->save();
+
+        $already_department_name = Department::where('name', $request['name'])->count();
+        $already_department_abbr = Department::where('name_abbreviation', $request['name_abbreviation'])->count();
+        
+        if($already_department_name > 0){
+            return redirect()->route('departmenting')->withErrors('Department name entered already exists.');
+        }
+        elseif($already_department_abbr >0){
+            return redirect()->route('departmenting')->withErrors('Department abbreviation entered already exists.');
+        }
+         else {
+            $department -> save();
+        }
+
+       /*  $department->save(); */
         return redirect()->route('departmenting')->with('success','Department added successfully.');
     }
 

@@ -182,16 +182,16 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="assetNameId">First Name</label>
+                                            <label for="assetNameId">First Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="assetNameId" placeholder="Enter First name" name="first_name">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="productionId">Last Name</label>
+                                            <label for="productionId">Last Name <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="text" class="form-control" id="serialId" placeholder="Enter last name" name="last_name">
                                         </div>
                                         <div class="form-group">
-                                            <label>Select user role</label>
+                                            <label>Select user role <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <select class="form-control select2" style="width: 100%;" name="role_id">
                                                 <option selected="selected" disabled>Select a user role...</option>
                                                 @foreach($roles as $role)
@@ -210,12 +210,12 @@
                                             <input type="text" class="form-control" id="serialId" placeholder="Enter middle name" name="middle_name">
 
                                         <div class="form-group">
-                                            <label for="AssetSerialId">Email</label>
+                                            <label for="AssetSerialId">Email <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <input type="email" class="form-control" id="AssetSerialId" placeholder="Enter user email" name="email">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Select user section</label>
+                                            <label>Select user section <sup><i class="fa fa-asterisk" style="font-size:6px;color:red"></i></sup></label>
                                             <select class="form-control select2" style="width: 100%;" name="section_id">
                                                 <option selected="selected" disabled>Select a user section...</option>
                                                 @foreach($sections as $section)

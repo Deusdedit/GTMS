@@ -53,7 +53,21 @@ class SectionController extends Controller
         $section->name = $request['name'];
         $section->name_abbreviation = $request['name_abbreviation'];
         $section->department_id = $request['department_id'];
-        $section->save();
+
+        $already_section_name = Section::where('name', $request['name'])->count();
+        $already_section_abbr = Section::where('name_abbreviation', $request['name_abbreviation'])->count();
+        
+        if($already_section_name > 0){
+            return redirect()->route('sectioning')->withErrors('section name entered already exists.');
+        } 
+        elseif($already_section_abbr > 0){
+            return redirect()->route('sectioning')->withErrors('section abbreviation entered already exists.');
+        }
+        else {
+            $section -> save();
+        }
+
+        /* $section->save(); */
         return redirect()->route('sectioning')->with('success','Section added successfully.');
    
     }

@@ -63,7 +63,15 @@ class UserController extends Controller
         $user->password = Hash::make($passcode);
         $user->role_id = $request['role_id'];
         $user->section_id = $request['section_id'];
-        $user->save();
+
+        $already_user = User::where('email', $request['email'])->count();
+        if($already_user > 0){
+            return redirect()->route('user.index')->withErrors('user email entered already exists.');
+        } else {
+            $user -> save();
+        }
+        
+        /* $user->save(); */
         return redirect()->route('user.index')->with('success','User added successfully.');
     }
 
